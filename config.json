@@ -1,0 +1,16 @@
+{
+  "google": [
+      {
+        "id": "1krfc4Ix_XyO4UZpi4mtdjpF_swrLQTmzTo9bfhF-qy4",
+        "filepath": "src/data/summary.json"
+			},
+		{ "id": "1N8DCuu1kFSXG58mENYL9aEVIOvZVSGSaHRl8AYN6bQk",
+			"filepath": "src/data/homepage.json"
+		},
+			{
+				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
+				"gid": "0",
+				"filepath": "src/data/sheet.json"
+			}
+    ]
+}

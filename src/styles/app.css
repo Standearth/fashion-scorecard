@@ -1,0 +1,133 @@
+:root {
+	font-family: var(--sans);
+	--sans: 'Montserrat', Helvetica, Arial, sans-serif;
+	--sans-bold: 'Montserrat Bold', Helvetica;
+	--white: #ffffff;
+	--primary-color: #272B41;
+	--secondary-color: #AECDDA;
+	--heading-blue: rgb(47,94,128);
+	--dark-red: rgb(189,18,13);
+	--light-red: #DA2128;
+	--heading-color: rgba(0, 0, 0, 0.7);
+	--text-color: #444444;
+	--background-without-opacity: rgba(255, 255, 255, 0.7);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-color: var(--white);
+	font-family:var(--sans);
+}
+
+body::before {
+	content: '';
+	width: 80vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 10vw;
+	z-index: -1;
+	background: radial-gradient(
+		50% 50% at 50% 50%,
+		var(--pure-white) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	opacity: 0.05;
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+	color: var(--heading-color);
+}
+
+p {
+	line-height: 1.5;
+	font-size:18px;
+	font-weight:lighter;
+}
+
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 0 0 1em 0;
+	text-align: center;
+}
+
+h2 {
+	font-size: 35px;
+}
+
+h4 {
+	font-size:18px;
+	color: #2F5E80;
+	font-weight:bold;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: rgba(255, 255, 255, 0.45);
+	border-radius: 3px;
+	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	padding: 0.5em;
+	overflow-x: auto;
+	color: var(--text-color);
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
+
+/* Accordion Styling */
+
+.accordion-button:not(.collapsed) {
+	background:none;
+	box-shadow:none;
+}
+
+.accordion-button:focus {
+	border-color:var(--white);
+	box-shadow:none;
+}
+
+.accordion-item {
+	border:0px;
+	background:none;
+}
+
+.accordion-button, .accordion-body {
+	padding:0px;
+	background:none;
+}
+
+.accordion-button::after {
+	width:30px;
+	height:30px;
+	background-size:30px;
+
+}

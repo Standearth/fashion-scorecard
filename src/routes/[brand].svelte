@@ -1,0 +1,463 @@
+<script context="module">
+	import data from '../data/sheet.json';
+	let res = "blue";
+	function loadData (slug) {
+		data.forEach(function(d) {
+			if (d.path == slug) {
+			  res = d;
+			  return res;
+		  }
+		})
+	}
+	
+	export async function load({ page, fetch }) {
+	  const slug = page.params.brand;
+	  //const url = `http://localhost:3000/src/data/${slug}.json`;
+	  
+		loadData(`${slug}`)
+		return {
+					props: {
+						content: res
+					}
+				}
+	}
+	/*
+    export async function load(ctx) {
+		const url = `http://${ctx.page.host}/src/data/${ctx.page.params.brand}.json`;
+		const res = await fetch(url);
+
+		if (res.ok) {
+			return {
+				props: {
+					content: await res.json()
+				}
+			};
+		}
+
+		return {
+			status: 400,
+			error: new Error(`Could not load ${ctx.page.params.brand}`)
+		};
+	}*/
+</script>
+
+<script>
+	import Grade from '../lib/Grade.svelte'
+	import { Col, Container, Row, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
+	import Grid from '../lib/Grid.svelte'
+	import Fa from 'svelte-fa/src/fa.svelte'
+	import Header from '../lib/Header.svelte'
+	import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
+	import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+	export let content;
+</script>
+
+<Header headerColor="blue"/>
+
+<div class="banner">
+	<span>Fossil-free Fashion Scorecard</span>
+</div>
+
+{#await content}
+LOADING...
+{:then brand}
+
+<div class='brand-cover'>
+	<div class="overlay">
+		<div class="summary-content">
+			<div class="rower">
+				<div class="grade">
+					<Grade gradeDetail={content.grade} gradeType='overall' grade={content.grade.charAt(0)} />
+				</div>
+				<div class="logo">
+					<img alt="{content.brand}" src="assets/images/logos/{content.path}.png">
+				</div>
+				<div class="name">
+					<h1>{content.brand}</h1>
+				</div>
+			</div>
+			<div class="rower">
+				<div class="summary">
+					{@html content.summary}
+				</div>
+				<div class="related-brands">
+					{@html content.brands}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="brand-content">
+	<Container>
+		<Row>
+		  <Col sm=12 lg={{size:8, offset:2}}>
+			<h2>Key findings</h2>
+			<hr />
+			<Accordion flush>
+			  <AccordionItem active>
+					<div class="acc-header" slot="header">
+						<Row>
+							<Col sm=0 lg=1>
+								<div class="section-icon">
+									<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s1.svg">
+								</div>
+							</Col>
+							<Col sm=1 lg=1>
+								<div class="section-grade">
+									<Grade gradeDetail={content.commitments_grade} gradeType='criteria' grade={content.commitments_grade.charAt(0)} />
+								</div>
+							</Col>
+							<Col sm=11 lg=10>
+								<div class="section-title">
+									<h3>Climate commitments & supply chain energy transparency</h3>
+								</div>
+							</Col>
+						</Row>
+					</div>
+					<div class="acc-body">
+						<Row>
+							<Col sm={{size:11, offset:1}} lg={{size:10, offset:2}}>
+								{@html content.commitments_summary}
+							</Col>
+						</Row>
+					</div>
+				</AccordionItem>
+				<hr/>
+				<AccordionItem>
+					<div class="acc-header" slot="header">
+					<Row>
+						<Col sm=0 lg=1>
+							<div class="section-icon">
+								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s2.svg">
+							</div>
+						</Col>
+							<Col sm=1 lg=1>
+							<div class="section-grade">
+								<Grade gradeDetail={content.renewable_grade} gradeType='criteria' grade={content.renewable_grade.charAt(0)} />
+							</div>
+						</Col>
+						<Col sm=11 lg=10>
+							<div class="section-title">
+								<h3>Renewable & energy efficient manufacturing</h3>
+							</div>
+						</Col>
+					</Row>
+					</div>
+					<div class="acc-body">
+						<Row>
+							<Col sm={{size:11, offset:1}} lg={{size:10, offset:2}}>
+								{@html content.renewable_summary}
+							</Col>
+						</Row>
+					</div>
+				</AccordionItem>
+				<hr/>
+				<AccordionItem>
+					<div class="acc-header" slot="header">
+					<Row>
+						<Col sm=0 lg=1>
+							<div class="section-icon">
+								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s3.svg">
+							</div>
+						</Col>
+							<Col sm=1 lg=1>
+							<div class="section-grade">
+								<Grade gradeDetail={content.materials_grade} gradeType='criteria' grade={content.materials_grade.charAt(0)} />
+							</div>
+						</Col>
+						<Col sm=11 lg=10>
+							<div class="section-title">
+								<h3>Low carbon materials</h3>
+							</div>
+						</Col>
+					</Row>
+					</div>
+					<div class="acc-body">
+						<Row>
+							<Col sm={{size:11, offset:1}} lg={{size:10, offset:2}}>
+								{@html content.materials_summary}
+							</Col>
+						</Row>
+					</div>
+				</AccordionItem>
+				<hr/>
+				<AccordionItem>
+					<div class="acc-header" slot="header">
+					<Row>
+						<Col sm=0 lg=1>
+							<div class="section-icon">
+								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s4.svg">
+							</div>
+						</Col>
+						<Col sm=1 lg=1>
+							<div class="section-grade">
+								<Grade gradeDetail={content.shipping_grade} gradeType='criteria' grade={content.shipping_grade.charAt(0)} />
+							</div>
+						</Col>
+						<Col sm=11 lg=10>
+							<div class="section-title">
+								<h3>Greener Shipping</h3>
+							</div>
+						</Col>
+					</Row>
+					</div>
+					<div class="acc-body">
+						<Row>
+							<Col sm={{size:11, offset:1}} lg={{size:10, offset:2}}>
+								{@html content.shipping_summary}
+							</Col>
+						</Row>
+					</div>
+				</AccordionItem>
+				<hr/>
+				<AccordionItem>
+					<div class="acc-header" slot="header">
+					<Row>
+						<Col sm=0 lg=1>
+							<div class="section-icon">
+								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s5.svg">
+							</div>
+						</Col>
+							<Col sm=1 lg=1>
+							<div class="section-grade">
+								<Grade gradeDetail={content.advocacy_grade} gradeType='criteria' grade={content.advocacy_grade.charAt(0)} />
+							</div>
+						</Col>
+						<Col sm=11 lg=10>
+							<div class="section-title">
+								<h3>Advocacy</h3>
+							</div>
+						</Col>
+					</Row>
+					</div>
+					<div class="acc-body">
+						<Row>
+							<Col sm={{size:11, offset:1}} lg={{size:9, offset:3}}>
+								{@html content.advocacy_summary}
+							</Col>
+						</Row>
+					</div>
+				</AccordionItem>
+				<hr/>
+			</Accordion>
+		  </Col>
+		</Row>
+		<Row>
+			<Col sm=12 lg={{size:8, offset:2}}>
+					<div class="brand-share">
+						<p>Share {content.brand}'s results: 
+							<a href="#facebook"><Fa icon="{faFacebook}" color="#2C72F6" size="2x"/></a>
+							<a href="#twitter"><Fa icon="{faTwitter}" color="#1DA1F2" size="2x" /></a>
+							<a href="#email"><Fa icon="{faEnvelope}" color="#2F5E80" size="2x"/></a></p>
+					</div>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm=12 lg={{size:8, offset:2}}>
+					<div class="similar-companies">
+						<h3>Similar companies</h3>
+						<Grid />
+						<p><a href="#fdsf"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
+						<hr />
+					</div>
+					
+			</Col>
+		</Row>
+		<Row>
+			<Col sm=12 lg={{size:8,offset:2}}>
+				<Accordion flush>
+					<AccordionItem active>
+						  <div class="notes-header" slot="header">
+							  <Row>
+								  <Col sm=12 lg=12>
+										<h4>Notes</h4>
+								  </Col>
+							  </Row>
+						  </div>
+						  <div class="notes-body">
+							  <Row>
+								  <Col sm=12>
+									  {@html content.advocacy_summary}
+								  </Col>
+							  </Row>
+						  </div>
+					  </AccordionItem>
+					</Accordion>
+			</Col>
+		</Row>
+
+	  </Container>
+</div>
+{/await}
+
+<style>
+	.brand-cover {
+		background-image:url('assets/images/shutterstock_1574311363.jpg');
+		background-position:top;
+		background-size: cover;
+		min-height:500px;
+		height:auto;
+	}
+
+	.overlay {
+		width:100%;
+		height:100%;
+		background:rgba(47,94,128,0.4);
+		min-height:400px;
+		padding-top:100px;
+		padding-bottom:80px;
+	}
+
+	.rower {
+		width:100%;
+		display:flex;
+
+	}
+
+	.summary-content {
+		width:95%;
+		max-width:1200px;
+		margin:auto;
+		background:var(--white);
+		border-radius: 5px;
+		padding:10px;
+		min-height:300px;
+		padding-left:30px;
+	}
+
+	.grade {
+		margin-top:-10px;
+		
+	}
+
+	.name {
+		margin-top:25px;
+		font-weight:bold;
+		
+	}
+
+	.name h1 {
+		color:var(--primary-color);
+		font-size:37px;
+	}
+
+	.logo {
+		max-width:150px;
+		padding-left:30px;
+		padding-right:30px;
+		margin-top:35px;
+	}
+
+	.summary {
+		width:100%;
+		max-width:830px;
+		min-width:400px;
+		display:inline;
+		padding-top:40px;
+		padding-bottom:40px;
+		font-size:20px;
+		font-family:var(-sans);
+		color:rgb(47,94,128);
+		font-weight:lighter;
+		
+	}
+
+	.related-brands {
+		background:#bbb;
+		margin-top:40px;
+		float:right;
+		width:100%;
+		max-width:250px;
+	}
+
+	.brand-content h2 {
+		color: var(--dark-red);
+		font-size: 30px;
+		font-family:var(--sans);
+		font-weight:600;
+	}
+
+	.brand-content hr {
+		border-color:rgb(172,159,156);
+		border:1pt;
+	}
+
+	.brand-content {
+		margin-top:50px;
+	}
+
+	.acc-header h3 {
+		font-size:22px;
+		color:var(--primary-color);
+		font-weight:600;
+	}
+
+	.section-icon {
+		width:100%;
+	}
+
+	.section-title {
+		margin-top:-5px;
+		padding-left:5px;
+
+	}
+
+	.acc-header {
+		width:100%;
+	}
+
+	.brand-share p {
+		padding-top:20px;
+		font-size:18px;
+		font-weight:600;
+		color:#272B41;
+	}
+
+
+	.similar-companies {
+		margin-top:40px;
+	}
+
+	.similar-companies h3 {
+		color:rgb(47,94,128);
+	}
+
+	.similar-companies p {
+		margin-bottom:60px;
+	}
+
+	.notes-body {
+		font-size:14px;
+	}
+
+	.notes-header h4{
+		margin-top:0px;
+		margin-bottom:0px;
+	}
+
+	.brand-share a {
+		padding-left:10px;
+		padding-right:10px;
+		
+	}
+
+	.banner {
+		font-family:'Amsi Pro Ultra';
+		display:flex;
+		flex: 1 1 100%;
+		justify-content:center;
+		background:var(--secondary-color);
+		text-transform:uppercase;
+	}
+
+	.banner span {
+		color:var(--primary-color);
+		letter-spacing:2px;
+		font-size:2.4rem;
+		padding-top:15px;
+		padding-bottom:10px;
+	}
+</style>
+
