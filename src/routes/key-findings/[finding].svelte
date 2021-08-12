@@ -1,8 +1,8 @@
 <script context="module">
-	import content from '../../data/content.json';
+	import c from '../../data/content.json';
 	let res;
 	function loadData (slug) {
-		res = content;
+		res = c;
 		return(res)
 	}
 	

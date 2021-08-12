@@ -1,5 +1,5 @@
 <script context="module">
-	import data from '../data/sheet.json';
+	/*import data from '../data/sheet.json';
 	let res = "blue";
 	function loadData (slug) {
 		data.forEach(function(d) {
@@ -20,10 +20,11 @@
 						content: res
 					}
 				}
-	}
-	/*
+	}*/
+	import { base } from '$app/paths';
+	console.log(`${base}`);
     export async function load(ctx) {
-		const url = `http://${ctx.page.host}/src/data/${ctx.page.params.brand}.json`;
+		const url = `${base}/src/data/${ctx.page.params.brand}.json`;
 		const res = await fetch(url);
 
 		if (res.ok) {
@@ -38,7 +39,7 @@
 			status: 400,
 			error: new Error(`Could not load ${ctx.page.params.brand}`)
 		};
-	}*/
+	}
 </script>
 
 <script>
