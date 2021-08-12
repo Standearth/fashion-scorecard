@@ -1,5 +1,5 @@
 <script context="module">
-	/*import data from '../data/sheet.json';
+	import data from '../data/sheet.json';
 	let res = "blue";
 	function loadData (slug) {
 		data.forEach(function(d) {
@@ -15,13 +15,14 @@
 	  //const url = `http://localhost:3000/src/data/${slug}.json`;
 	  
 		loadData(`${slug}`)
+		console.log(res);
 		return {
 					props: {
 						content: res
 					}
 				}
-	}*/
-	import { base } from '$app/paths';
+	}
+	/*import { base } from '$app/paths';
 	console.log(`${base}`);
     export async function load(ctx) {
 		const url = `${base}/src/data/${ctx.page.params.brand}.json`;
@@ -39,7 +40,7 @@
 			status: 400,
 			error: new Error(`Could not load ${ctx.page.params.brand}`)
 		};
-	}
+	}*/
 </script>
 
 <script>
