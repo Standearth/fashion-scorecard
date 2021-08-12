@@ -14,7 +14,7 @@
 	onMount(() => {
 		setTimeout(() => {
 			createFootnotes();
-		}, 500);
+		}, 2000);
 	});
 </script>
 
@@ -323,7 +323,7 @@
 			</Accordion>
 			<div class="notes">
 				<Accordion flush>
-					<AccordionItem>
+					<AccordionItem active>
 						  <div class="notes-header" slot="header">
 							  <Row>
 								  <Col sm=12 lg=12>
