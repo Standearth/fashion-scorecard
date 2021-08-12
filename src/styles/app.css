@@ -4,6 +4,7 @@
 	--sans-bold: 'Montserrat Bold', Helvetica;
 	--white: #ffffff;
 	--primary-color: #272B41;
+	--yellow-accent: #FCD455;
 	--secondary-color: #AECDDA;
 	--heading-blue: rgb(47,94,128);
 	--dark-red: rgb(189,18,13);
@@ -51,6 +52,11 @@ p {
 	font-weight:lighter;
 }
 
+blockquote {
+	padding:10px;
+	border:1px solid var(--primary-color);
+}
+
 a {
 	color: var(--accent-color);
 	text-decoration: none;
@@ -74,6 +80,11 @@ h4 {
 	font-size:18px;
 	color: #2F5E80;
 	font-weight:bold;
+}
+
+li {
+	font-weight:lighter;
+	font-size:18px;
 }
 
 pre {
@@ -131,3 +142,47 @@ button:focus:not(:focus-visible) {
 	background-size:30px;
 
 }
+
+/* Tooltips */
+
+.footnote {
+	position: relative;
+	display: inline-block;
+	
+  }
+
+.footnote sup {
+	border-bottom: 1px dotted black;
+}
+  
+  .footnote .note {
+	visibility: hidden;
+	min-width: 120px;
+	max-width:400px;
+	font-size:13px;
+	padding:10px;
+	background: var(--white);
+	color: var(--primary-color);
+	box-shadow: 0px 0px 5px 5px silver;    
+	text-align: center;
+	border-radius: 6px;
+  
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+  }
+
+  .note::selection {
+	  background:var(--yellow-accent);
+  }
+  
+  .footnote:hover .note {
+	visibility: visible;
+	transition: all 0.15s ease;
+  }
+
+  .notes li {
+	  font-size:15px;
+	  font-weight:lighter;
+	  padding-bottom:5px;
+  }

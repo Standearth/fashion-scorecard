@@ -43,6 +43,8 @@
 
 <script>
 	import Grade from '../lib/Grade.svelte'
+	import createFootnotes from '../lib/footnote.js'
+	import {onMount} from 'svelte'
 	import { Col, Container, Row, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
 	import Grid from '../lib/Grid.svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
@@ -51,6 +53,19 @@
 	import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 	export let content;
+
+	onMount(() => {
+		createFootnotes();
+		document.getElementsByClassName('accordion-collapse')[0].setAttribute('style','overflow:visible')
+	});
+
+	function updateFootnotes() {
+		setTimeout(() => {
+					createFootnotes();
+					document.getElementsByClassName('accordion-collapse')[0].setAttribute('style','overflow:visible')
+				}, 500);
+	}
+
 </script>
 
 <Header headerColor="blue"/>
@@ -96,10 +111,10 @@ LOADING...
 			<h2>Key findings</h2>
 			<hr />
 			<Accordion flush>
-			  <AccordionItem active>
+			  <AccordionItem active on:toggle={(e) => {updateFootnotes()}}>
 					<div class="acc-header" slot="header">
 						<Row>
-							<Col sm=0 lg=1>
+							<Col sm=1 lg=1>
 								<div class="section-icon">
 									<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s1.svg">
 								</div>
@@ -109,7 +124,7 @@ LOADING...
 									<Grade gradeDetail={content.commitments_grade} gradeType='criteria' grade={content.commitments_grade.charAt(0)} />
 								</div>
 							</Col>
-							<Col sm=11 lg=10>
+							<Col sm=11 md=10 lg=10>
 								<div class="section-title">
 									<h3>Climate commitments & supply chain energy transparency</h3>
 								</div>
@@ -125,12 +140,12 @@ LOADING...
 					</div>
 				</AccordionItem>
 				<hr/>
-				<AccordionItem>
+				<AccordionItem on:toggle={(e) => {updateFootnotes()}}>
 					<div class="acc-header" slot="header">
 					<Row>
-						<Col sm=0 lg=1>
+						<Col sm=1 lg=1>
 							<div class="section-icon">
-								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s2.svg">
+								<img alt="Renewable & energy-efficient manufacturing" src="assets/images/s2.svg">
 							</div>
 						</Col>
 							<Col sm=1 lg=1>
@@ -138,7 +153,7 @@ LOADING...
 								<Grade gradeDetail={content.renewable_grade} gradeType='criteria' grade={content.renewable_grade.charAt(0)} />
 							</div>
 						</Col>
-						<Col sm=11 lg=10>
+						<Col sm=11 md=10 lg=10>
 							<div class="section-title">
 								<h3>Renewable & energy efficient manufacturing</h3>
 							</div>
@@ -154,12 +169,12 @@ LOADING...
 					</div>
 				</AccordionItem>
 				<hr/>
-				<AccordionItem>
+				<AccordionItem on:toggle={(e) => {updateFootnotes()}}>
 					<div class="acc-header" slot="header">
 					<Row>
-						<Col sm=0 lg=1>
+						<Col sm=1 lg=1>
 							<div class="section-icon">
-								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s3.svg">
+								<img alt="Low-carbon materials" src="assets/images/s3.svg">
 							</div>
 						</Col>
 							<Col sm=1 lg=1>
@@ -167,7 +182,7 @@ LOADING...
 								<Grade gradeDetail={content.materials_grade} gradeType='criteria' grade={content.materials_grade.charAt(0)} />
 							</div>
 						</Col>
-						<Col sm=11 lg=10>
+						<Col sm=11 md=10 lg=10>
 							<div class="section-title">
 								<h3>Low carbon materials</h3>
 							</div>
@@ -183,10 +198,10 @@ LOADING...
 					</div>
 				</AccordionItem>
 				<hr/>
-				<AccordionItem>
+				<AccordionItem on:toggle={(e) => {updateFootnotes()}}>
 					<div class="acc-header" slot="header">
 					<Row>
-						<Col sm=0 lg=1>
+						<Col sm=1 lg=1>
 							<div class="section-icon">
 								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s4.svg">
 							</div>
@@ -196,7 +211,7 @@ LOADING...
 								<Grade gradeDetail={content.shipping_grade} gradeType='criteria' grade={content.shipping_grade.charAt(0)} />
 							</div>
 						</Col>
-						<Col sm=11 lg=10>
+						<Col sm=11 md=10 lg=10>
 							<div class="section-title">
 								<h3>Greener Shipping</h3>
 							</div>
@@ -215,7 +230,7 @@ LOADING...
 				<AccordionItem>
 					<div class="acc-header" slot="header">
 					<Row>
-						<Col sm=0 lg=1>
+						<Col sm=1 lg=1>
 							<div class="section-icon">
 								<img alt="Climate commitments & supply chain energy transparency" src="assets/images/s5.svg">
 							</div>
@@ -225,7 +240,7 @@ LOADING...
 								<Grade gradeDetail={content.advocacy_grade} gradeType='criteria' grade={content.advocacy_grade.charAt(0)} />
 							</div>
 						</Col>
-						<Col sm=11 lg=10>
+						<Col sm=11 md=10 lg=10>
 							<div class="section-title">
 								<h3>Advocacy</h3>
 							</div>
@@ -258,7 +273,7 @@ LOADING...
 			<Col sm=12 lg={{size:8, offset:2}}>
 					<div class="similar-companies">
 						<h3>Similar companies</h3>
-						<Grid />
+						<Grid mode="related" filter={brand.category}/>
 						<p><a href="#fdsf"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
 						<hr />
 					</div>
@@ -267,24 +282,31 @@ LOADING...
 		</Row>
 		<Row>
 			<Col sm=12 lg={{size:8,offset:2}}>
-				<Accordion flush>
-					<AccordionItem active>
-						  <div class="notes-header" slot="header">
-							  <Row>
-								  <Col sm=12 lg=12>
-										<h4>Notes</h4>
-								  </Col>
-							  </Row>
-						  </div>
-						  <div class="notes-body">
-							  <Row>
-								  <Col sm=12>
-									  {@html content.advocacy_summary}
-								  </Col>
-							  </Row>
-						  </div>
-					  </AccordionItem>
+				<div class="notes">
+					<Accordion flush>
+						<AccordionItem active>
+							<div class="notes-header" slot="header">
+								<Row>
+									<Col sm=12 lg=12>
+											<h4>Notes</h4>
+									</Col>
+								</Row>
+							</div>
+							<div class="notes-body">
+								<Row>
+									<Col sm=12>
+										<ul>
+											{@html content.commitments_notes}
+											{@html content.renewable_notes}
+											{@html content.materials_notes}
+											{@html content.shipping_notes}
+										</ul>
+									</Col>
+								</Row>
+							</div>
+						</AccordionItem>
 					</Accordion>
+				</div>
 			</Col>
 		</Row>
 
@@ -398,6 +420,12 @@ LOADING...
 		width:100%;
 	}
 
+	@media (max-width:768px) {
+		.section-icon {
+			display:none;
+		}
+	}
+
 	.section-title {
 		margin-top:-5px;
 		padding-left:5px;
@@ -426,6 +454,10 @@ LOADING...
 
 	.similar-companies p {
 		margin-bottom:60px;
+	}
+
+	.notes {
+		margin-bottom:50px;
 	}
 
 	.notes-body {

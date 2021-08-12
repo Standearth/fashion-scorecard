@@ -1,13 +1,19 @@
 <script>
 	import Grid from '$lib/Grid.svelte';
+	import {onMount} from 'svelte';
 	import { Col, Container, Row, Collapse, Accordion, AccordionItem} from 'sveltestrap';
 	import summary from "../data/summary.json";
 	import homepage from "../data/homepage.json";
 	import Header from '$lib/Header.svelte';
+	import createFootnotes from "../lib/footnote";
     import '../styles/water.css';
 	import '../styles/app.css';
 	import '../styles/font.css';
 	let isOpen = false;
+
+	onMount(() => {
+		createFootnotes();
+	});
 </script>
 
 <Header headerColor="yellow"/>
@@ -28,7 +34,10 @@
 				<div id="s1copy">
 					<h2>Fashion's fossil fuel problem</h2>
 					{@html summary.section_2_copy}
-					<a href="#brand-scores">
+						<button>
+							<a target="_self" sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">Learn more</a>
+						</button>
+					<a href="brand-scores">
 						<button>
 							See brand scores
 						</button>
@@ -37,7 +46,7 @@
 			</Col>
 			<Col sm=12 lg=6>
 				<div id="s1img">
-					<img src="assets/images/iceberg.jpeg">
+					<img alt="iceberg" src="assets/images/iceberg.jpeg">
 				</div>
 			</Col>
 		</Row>
@@ -51,65 +60,76 @@
 				<div id="s2copy">
 					<h2>{homepage.Section_2_title}</h2>
 					{@html homepage.Section_2_content}
-					<button on:click={() => (isOpen = !isOpen)} class="mb-3">
+					{@html homepage.Section_2_content_2}
+					<!--<button on:click={() => (isOpen = !isOpen)} class="mb-3">
 						See full executive summary
 					</button>
 					<Collapse {isOpen}>
-						{@html homepage.Section_2_content_2}
-					</Collapse>
+						
+					</Collapse>-->
 				</div>
 			</Col>
 		</Row>
 		<Row>
 			<Col sm=12 lg={{size:8, offset:2 }}>
-				<p>{homepage.criteria_opening}</p>
+				<p>{@html homepage.criteria_opening}</p>
 			</Col>
 		</Row>
 		<Row>
 			<Col sm=12 md=6 lg=4>
-				<div class="box">
-					<div class="boximg">
-						<img alt="logo" src="assets/images/s1.svg"> 
+				<a target="_self" sveltekit:prefetch href="/key-findings/climate-commitments-energy-transparency">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s1.svg"> 
+						</div>
+						<h4>{homepage.Criteria1}</h4>
+						{homepage.Criteria1b}
 					</div>
-					<h4>{homepage.Criteria1}</h4>
-					{homepage.Criteria1b}
-				</div>
+				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<div class="box">
-					<div class="boximg">
-						<img alt="logo" src="assets/images/s2.svg"> 
+				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-efficient-manufacturing">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s2.svg"> 
+						</div>
+						<h4>{homepage.Criteria2}</h4>
+						{homepage.Criteria2b}
 					</div>
-					<h4>{homepage.Criteria2}</h4>
-					{homepage.Criteria2b}
-				</div>
+				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<div class="box">
-					<div class="boximg">
-						<img alt="logo" src="assets/images/s5.svg"> 
+				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-advocacy">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s5.svg"> 
+						</div>
+						<h4>{homepage.Criteria3}</h4>
+						{homepage.Criteria3b}
 					</div>
-					<h4>{homepage.Criteria3}</h4>
-					{homepage.Criteria3b}
-				</div>
+				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<div class="box">
-					<div class="boximg">
-						<img alt="logo" src="assets/images/s3.svg"> 
+				<a target="_self" sveltekit:prefetch href="/key-findings/low-carbon-longer-lasting-materials">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s3.svg"> 
+						</div>
+						<h4>{homepage.Criteria4}</h4>
+						{homepage.Criteria4b}
 					</div>
-					<h4>{homepage.Criteria4}</h4>
-					{homepage.Criteria4b}
-				</div>
+				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<div class="box">
-					<div class="boximg">
-						<img alt="logo" src="assets/images/s4.svg"> 
+				<a target="_self" sveltekit:prefetch href="/key-findings/greener-shipping">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s4.svg"> 
+						</div>
+						<h4>{homepage.Criteria5}</h4>
+						{homepage.Criteria5b}
 					</div>
-					<h4>{homepage.Criteria5}</h4>
-					{homepage.Criteria5b}
-				</div>
+				</a>
 			</Col>
 			
 		</Row>
@@ -132,7 +152,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding1}</h3>
+									<h3>{@html homepage.Finding1}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -140,7 +160,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding1b}</p>
+								<p>{@html homepage.Finding1b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -151,7 +171,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding2}</h3>
+									<h3>{@html homepage.Finding2}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -170,7 +190,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding3}</h3>
+									<h3>{@html homepage.Finding3}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -178,7 +198,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding3b}</p>
+								<p>{@html homepage.Finding3b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -189,7 +209,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding4}</h3>
+									<h3>{@html homepage.Finding4}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -197,7 +217,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding4b}</p>
+								<p>{@html homepage.Finding4b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -208,7 +228,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding5}</h3>
+									<h3>{@html homepage.Finding5}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -216,7 +236,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding5b}</p>
+								<p>{@html homepage.Finding5b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -227,7 +247,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding6}</h3>
+									<h3>{@html homepage.Finding6}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -235,7 +255,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding6b}</p>
+								<p>{@html homepage.Finding6b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -246,7 +266,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding7}</h3>
+									<h3>{@html homepage.Finding7}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -254,7 +274,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding7b}</p>
+								<p>{@html homepage.Finding7b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -265,7 +285,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding8}</h3>
+									<h3>{@html homepage.Finding8}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -273,7 +293,7 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding8b}</p>
+								<p>{@html homepage.Finding8b}</p>
 							</Col>
 						</Row>
 					</div>
@@ -284,7 +304,7 @@
 						<Row>
 							<Col sm=12>
 								<div class="section-title">
-									<h3>{homepage.Finding9}</h3>
+									<h3>{@html homepage.Finding9}</h3>
 								</div>
 							</Col>
 						</Row>
@@ -292,13 +312,34 @@
 					<div class="acc-body">
 						<Row>
 							<Col sm=12>
-								<p>{homepage.Finding9b}</p>
+								<p>{@html homepage.Finding9b}</p>
 							</Col>
 						</Row>
 					</div>
 				</AccordionItem>
 				<hr/>
 			</Accordion>
+			<div class="notes">
+				<Accordion flush>
+					<AccordionItem>
+						  <div class="notes-header" slot="header">
+							  <Row>
+								  <Col sm=12 lg=12>
+										<h4>Notes</h4>
+								  </Col>
+							  </Row>
+						  </div>
+						  <div class="notes-body">
+							  <Row>
+								  <Col sm=12>
+									{@html homepage.homepage_notes}
+								  </Col>
+							  </Row>
+						  </div>
+					  </AccordionItem>
+					</Accordion>
+				
+			</div>
 			</Col>
 		</Row>
 	</Container>
@@ -311,7 +352,7 @@
 		<Row>
 			<Col sm=12 md={{size:8, offset:2}} lg={{size:8, offset:2}}>
 				<h2>Brand scores</h2>
-				{homepage.criteria_opening}
+				<p>{homepage.brand_scores}</p>
 			</Col>
 		</Row>	
 		<div id="grid">
@@ -367,7 +408,9 @@
 		padding:20px;
 		border-radius:6px;
 		font-size:17px;
+		color:var(--primary-color);
 		float:left;
+		border:1px solid var(--white);
 	}
 
 	button {
@@ -379,6 +422,7 @@
 
 	.box:hover {
 		border:1px solid #2F5E80;
+		
 	}
 
 	.boximg {
@@ -389,6 +433,15 @@
 		margin:auto;
 		max-height:50px;
 		max-width:70px;
+	}
+
+	.box:hover h4 {
+		color:var(--primary-color);
+		text-decoration:none;
+	}
+
+	.box h4:hover {
+		text-decoration:underline;
 	}
 
 	h4 {

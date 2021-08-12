@@ -5,11 +5,11 @@
 	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 	import Sidebar from "../lib/Sidebar.svelte";
 	import Hamburger from "../lib/Hamburger.svelte";
-
+	import * as animateScroll from "svelte-scrollto";
 	let open = false;
 	export let headerColor = "blue";
+	let y;
 </script>
-
 
 <header>
 	<Sidebar bind:open/>
@@ -22,9 +22,9 @@
 
 		<nav id="main-nav">
 			<ul>
-				<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Brand scores</a></li>
+				<li class:active={$page.path === '/brand-scores'} on:click={() => {location.href='/brand-scores'}}><a sveltekit:prefetch href="/">Brand scores</a></li>
 				<li id="{headerColor}" class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">Take action</a></li>
-				<li class:active={$page.path === '/about'}><Hamburger bind:open={open} /></li>
+				<li class:active={$page.path === '/'}><Hamburger bind:open={open} /></li>
 			</ul>
 		</nav>
 
@@ -37,7 +37,12 @@
 	header {
 		background:var(--primary-color);
 		color:var(--white);
-		overflow:hidden;
+		position: -webkit-sticky; /* Safari */
+		position: sticky;
+		top: 0;
+		width:100%;
+		height:57px;
+		z-index:99;
 	}
 
 	#yellow {
@@ -95,6 +100,15 @@
 
 	nav#main-nav li:nth-child(2) a {
 		color:var(--primary-color);
+	}
+
+	@media screen and (max-width:700px) {
+		nav#main-nav li:first-child {
+			display:none;
+		}
+		nav#main-nav li:nth-child(2) {
+			display:none;
+		}
 	}
 
 	nav#main-nav a {
