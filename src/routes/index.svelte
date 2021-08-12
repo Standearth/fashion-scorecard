@@ -12,7 +12,9 @@
 	let isOpen = false;
 
 	onMount(() => {
-		createFootnotes();
+		setTimeout(() => {
+			createFootnotes();
+		}, 500);
 	});
 </script>
 
