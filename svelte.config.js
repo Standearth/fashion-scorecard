@@ -10,6 +10,7 @@ export default {
 			assets: 'build',
 			fallback: null
 		}),
+		paths: { base: "/fashion-scorecard" },
 		target: '#svelte'
 	}
 };
