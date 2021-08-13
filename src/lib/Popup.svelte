@@ -93,6 +93,7 @@
 
 	.name {
         margin-top:20px;
+        margin-left:20px;
 		font-weight:bold;
 		
 	}
@@ -104,9 +105,9 @@
 
 	.logo {
 		max-width:150px;
-		padding-left:30px;
-		padding-right:30px;
-		margin-top:55px;
+		padding-left:10px;
+		padding-right:10px;
+		margin-top:25px;
 	}
 
 	.summary {

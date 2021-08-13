@@ -197,8 +197,7 @@
     }
 
     .score-box img {
-        max-width: 100px;
-        max-height:45px;
+        max-height:50px;
         height:auto;
 
     }
