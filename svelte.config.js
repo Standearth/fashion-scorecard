@@ -1,6 +1,7 @@
 /** @type {import('@sveltejs/kit').Config} */
-import adapter from '@sveltejs/adapter-static';
-
+import adapter from '@sveltejs/adapter-static'
+import netlify  from '@sveltejs/adapter-netlify'
+/*
 export default {
 	kit: {
 		
@@ -10,9 +11,13 @@ export default {
 			assets: 'build',
 			fallback: null
 		}),
-		paths: { 
-			base: "/fashion-scorecard",
-			assets: "/fashion-scorecard" },
 		target: '#svelte'
 	}
-};
+};*/
+
+export default {
+	kit: {
+		adapter: netlify(),
+		target: '#svelte'
+	}
+}

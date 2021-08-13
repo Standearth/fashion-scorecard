@@ -1,5 +1,6 @@
 <script>
 	import Grade from '../lib/Grade.svelte'
+	import {base} from '$app/paths'
 	import { Col, Container, Row, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
 	import Grid from '../lib/Grid.svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'

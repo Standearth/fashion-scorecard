@@ -1,6 +1,7 @@
 <script>
      import brands from "../data/sheet.json"
      import Grade from "../lib/Grade.svelte"
+     import {base} from '$app/paths'
      import Popup from "../lib/Popup.svelte"
      import {fade} from 'svelte/transition'
      import { Col, Container, Row } from 'sveltestrap';
@@ -93,7 +94,7 @@
                     <a sveltekit:prefetch on:click={() => content = {name: brand.brand, path: brand.path, grade: brand.grade, summary:brand.summary}} on:click={() => (open = !open)}>
                         <div class="score-box" transition:fade>
                             <p>
-                                <img alt="{brand.brand}" transition:fade src="assets/images/logos/{brand.path}.png">
+                                <img alt="{brand.brand}" transition:fade src="{base}/assets/images/logos/{brand.path}.png">
                             </p>
                             <div class="score-box-grade" transition:fade>
                                 <Grade gradeDetail={brand.grade} gradeType='grid' grade={brand.grade.charAt(0)} />

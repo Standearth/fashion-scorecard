@@ -4,7 +4,6 @@
 		const slug = page.params.brand;
 		const content = await fetch(`${base}/${slug}.json`)
 			.then((r) => r.json());
-		
 		return {
 			props: content
 		};
@@ -23,7 +22,6 @@
 	import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 	export let content;
-	console.log(content.brand);
 
 	onMount(() => {
 		createFootnotes();

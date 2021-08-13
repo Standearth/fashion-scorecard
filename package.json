@@ -14,6 +14,7 @@
     "deploy": "rm -rf docs && cp -r build docs && git add --all && git commit -m 'deploy' && git push origin main"
   },
   "devDependencies": {
+    "@sveltejs/adapter-netlify": "^1.0.0-next.27",
     "@sveltejs/adapter-static": "^1.0.0-next.13",
     "@sveltejs/kit": "next",
     "archieml": "^0.4.2",
