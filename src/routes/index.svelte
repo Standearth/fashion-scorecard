@@ -36,11 +36,13 @@
 		<Row>
 			<Col sm=12 lg=6>
 				<div id="s1copy">
-					<h2>Fashion's fossil fuel problem</h2>
-					{@html summary.section_2_copy}
+					<h2>{homepage.Section_1_title}</h2>
+					{@html homepage.Section_1_content}
+					<a sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">
 						<button>
-							<a target="_self" sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">Learn more</a>
+							Learn more
 						</button>
+					</a>
 					<a href="brand-scores">
 						<button>
 							See brand scores

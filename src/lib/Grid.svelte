@@ -1,7 +1,7 @@
 <script>
      import brands from "../data/sheet.json"
      import Grade from "../lib/Grade.svelte"
-     import {base} from '$app/paths'
+     import {base} from '$app/paths'    
      import Popup from "../lib/Popup.svelte"
      import {fade} from 'svelte/transition'
      import { Col, Container, Row } from 'sveltestrap';
@@ -35,6 +35,26 @@
         if (sort == 'abc') {
             sortedData = filteredData.sort(function(a,b) {
                 return a.brand.localeCompare(b.brand);
+            })
+        } else if (sort == 'bic1') {
+            sortedData = filteredData.sort(function(a,b) {
+                return a.commitments_grade.localeCompare(b.commitments_grade);
+            })
+        } else if (sort == 'bic2') {
+            sortedData = filteredData.sort(function(a,b) {
+                return a.renewable_grade.localeCompare(b.renewable_grade);
+            })
+        } else if (sort == 'bic3') {
+            sortedData = filteredData.sort(function(a,b) {
+                return a.materials_grade.localeCompare(b.materials_grade);
+            })
+        } else if (sort == 'bic4') {
+            sortedData = filteredData.sort(function(a,b) {
+                return a.shipping_grade.localeCompare(b.shipping_grade);
+            })
+        } else if (sort == 'bic5') {
+            sortedData = filteredData.sort(function(a,b) {
+                return a.advocacy_grade.localeCompare(b.advocacy_grade);
             })
         } else {
             sortedData = filteredData.sort(function(a,b) {
