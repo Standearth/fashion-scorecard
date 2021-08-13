@@ -2,13 +2,11 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import logo from '../svg/logo_white.svg';
-	import Fa from 'svelte-fa/src/fa.svelte'
-	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 	import Sidebar from "../lib/Sidebar.svelte";
 	import Hamburger from "../lib/Hamburger.svelte";
-	import * as animateScroll from "svelte-scrollto";
 	let open = false;
 	export let headerColor = "blue";
+	console.log(base);
 	let y;
 </script>
 

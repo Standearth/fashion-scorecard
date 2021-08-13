@@ -52,7 +52,7 @@
 					<Grade gradeDetail={content.grade} gradeType='overall' grade={content.grade.charAt(0)} />
 				</div>
 				<div class="logo">
-					<img alt="{content.brand}" src="assets/images/logos/{content.path}.png">
+					<img alt="{content.brand}" src="/assets/images/logos/{content.path}.png">
 				</div>
 				<div class="name">
 					<h1>{content.brand}</h1>
@@ -61,9 +61,6 @@
 			<div class="rower">
 				<div class="summary">
 					{@html content.summary}
-				</div>
-				<div class="related-brands">
-					{@html content.brands}
 				</div>
 			</div>
 		</div>
@@ -282,7 +279,7 @@
 
 <style>
 	.brand-cover {
-		background-image:url('assets/images/shutterstock_1574311363.jpg');
+		background-image:url('/assets/images/shutterstock_1574311363.jpg');
 		background-position:top;
 		background-size: cover;
 		min-height:500px;
