@@ -170,13 +170,13 @@
     .brand-scores {
         display:flex;
         flex-flow: row wrap;
-        align-items: center;
+        justify-content: center;
         text-align:center;
     }
 
     .score-box {
-        width:133px;
-        height:133px;
+        min-width:133px;
+        min-height:133px;
         text-align:center;
         border:1px solid #cccccc;
         border-radius:6px;

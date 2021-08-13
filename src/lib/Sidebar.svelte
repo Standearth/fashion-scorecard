@@ -9,7 +9,8 @@
 <aside class="absolute w-full h-full border-r-2" class:open>
 	<nav id="full-nav">
         <div id="menu-wrap">
-            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/">Executive Summary</a></p>
+            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/">Home</a></p>
+            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/executive-summary">Executive Summary</a></p>
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand Scores</a></p>
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Key Findings</a></p>
                 <ul>
