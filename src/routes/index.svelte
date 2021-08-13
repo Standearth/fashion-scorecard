@@ -78,6 +78,7 @@
 		</Row>
 		<Row>
 			<Col sm=12 lg={{size:8, offset:2 }}>
+				<h2>{@html homepage.criteria_title}</h2>
 				<p>{@html homepage.criteria_opening}</p>
 			</Col>
 		</Row>
