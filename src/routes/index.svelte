@@ -43,11 +43,7 @@
 							Learn more
 						</button>
 					</a>
-					<a href="brand-scores">
-						<button>
-							See brand scores
-						</button>
-					</a>
+					
 				</div>
 			</Col>
 			<Col sm=12 lg=6>
@@ -76,6 +72,8 @@
 				</div>
 			</Col>
 		</Row>
+	</Container>
+	<Container>
 		<Row>
 			<Col sm=12 lg={{size:8, offset:2 }}>
 				<h2>{@html homepage.criteria_title}</h2>

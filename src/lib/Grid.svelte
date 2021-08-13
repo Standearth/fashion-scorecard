@@ -13,12 +13,31 @@
         grade: 'A-',
         summary: 'This is the summary'
     };
+    
+    function pickGrade(brand) {
+        if (sort == 'bic1') {
+            return brand.commitments_grade
+        } else if (sort == 'bic2') {
+            return brand.renewable_grade
+        } else if (sort == 'bic3') {
+            return brand.materials_grade
+        } else if (sort == 'bic4') {
+            return brand.shipping_grade
+        } else if (sort == 'bic5') {
+            return brand.advocacy_grade
+        } else {
+            sortTitle = null;
+            return brand.grade;
+        }
+    }
 
     export let filter = 'all';
     let sort = 'abc';
     export let mode = 'full';
     let filteredData = brands;
     let sortedData = filteredData;
+    let displayedGrade;
+    let sortTitle;
     console.log(filter);
     function filterGrid () {
 
@@ -37,22 +56,28 @@
                 return a.brand.localeCompare(b.brand);
             })
         } else if (sort == 'bic1') {
+            sortTitle = 'Best in category: Climate Commitments and Energy Transparency'
+            displayedGrade = b.commitments_grade;
             sortedData = filteredData.sort(function(a,b) {
                 return a.commitments_grade.localeCompare(b.commitments_grade);
             })
         } else if (sort == 'bic2') {
+            sortTitle = 'Best in category: Renewables & Energy Efficient Manufacturing'
             sortedData = filteredData.sort(function(a,b) {
                 return a.renewable_grade.localeCompare(b.renewable_grade);
             })
         } else if (sort == 'bic3') {
+            sortTitle = 'Best in category: Low Carbon Materials'
             sortedData = filteredData.sort(function(a,b) {
                 return a.materials_grade.localeCompare(b.materials_grade);
             })
         } else if (sort == 'bic4') {
+            sortTitle = 'Best in category: Greener Shipping'
             sortedData = filteredData.sort(function(a,b) {
                 return a.shipping_grade.localeCompare(b.shipping_grade);
             })
         } else if (sort == 'bic5') {
+            sortTitle = 'Best in category: Renewable Energy Advocacy'
             sortedData = filteredData.sort(function(a,b) {
                 return a.advocacy_grade.localeCompare(b.advocacy_grade);
             })
@@ -95,12 +120,12 @@
                         <!-- svelte-ignore a11y-no-onchange -->
                         <select bind:value={sort} on:change="{() => filterGrid()}" name="sort" id="order">
                             <option value="abc">Alphabetically</option>
-                            <option value="btow">Best to worst</option>
+                            <option value="btow">Best to worst overall</option>
                             <option value="bic1">Best in category: Climate commitments and energy transparency</option>
                             <option value="bic2">Best in category: Renewable energy</option>
                             <option value="bic3">Best in category: Low carbon materials</option>
                             <option value="bic4">Best in category: Greeer shipping</option>
-                            <option value="bic4">Best in category: Advocacy</option>
+                            <option value="bic5">Best in category: Advocacy</option>
                         </select>
                 </div> 
             </Col>
@@ -108,6 +133,9 @@
     {/if}
         <Row>
             <Col sm=12>
+                {#if sortTitle} 
+                    <h4>{sortTitle}</h4>
+                {/if}
                 <div class="brand-scores">
                 {#each sortedData as brand}
                     <!-- svelte-ignore a11y-missing-attribute -->
@@ -117,7 +145,7 @@
                                 <img alt="{brand.brand}" transition:fade src="{base}/assets/images/logos/{brand.path}.png">
                             </p>
                             <div class="score-box-grade" transition:fade>
-                                <Grade gradeDetail={brand.grade} gradeType='grid' grade={brand.grade.charAt(0)} />
+                                <Grade on:change={() => pickGrade(brand)} gradeDetail={pickGrade(brand)} gradeType='grid' grade={pickGrade(brand).charAt(0)} />
                             </div>
                         </div>
                     </a>
