@@ -383,6 +383,13 @@
 		padding-top:50px;
 	}
 
+	#s1img {
+		text-align:center;
+	}
+	#s1img img {
+		max-height:400px;
+	}
+
 	h2 {
 		color:var(--heading-blue);
 		font-weight:bold;

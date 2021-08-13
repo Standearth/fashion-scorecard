@@ -199,6 +199,8 @@
 						<a href="/key-findings/low-carbon-longer-lasting-materials"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf5_title}</strong> <Fa icon="{faArrowRight}" size="1x"/></a>
 					{:else if slug == 'low-carbon-longer-lasting-materials' }
 						<a href="/key-findings/greener-shipping"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf6_title}</strong> <Fa icon="{faArrowRight}" size="1x"/></a>
+						{:else if slug == 'greener-shipping' }
+						<a href="/methodology"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.methodology_title}</strong> <Fa icon="{faArrowRight}" size="1x"/></a>
 					{/if}
 				</div>
 			</Col>

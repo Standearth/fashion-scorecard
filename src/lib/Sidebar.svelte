@@ -11,7 +11,7 @@
         <div id="menu-wrap">
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/">Executive Summary</a></p>
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand Scores</a></p>
-            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/fashions-fossil-fuel-problem">Key Findings</a></p>
+            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Key Findings</a></p>
                 <ul>
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Fashion's Fossil Fuel Problem</a></li>
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">Climate Commitments and Energy Transparency</a></li>
