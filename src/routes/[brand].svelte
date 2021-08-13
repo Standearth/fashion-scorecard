@@ -279,7 +279,7 @@
 
 <style>
 	.brand-cover {
-		background-image:url('/assets/images/shutterstock_1574311363.jpg');
+		background-image:url('/assets/images/brand-cover.jpg');
 		background-position:top;
 		background-size: cover;
 		min-height:500px;
