@@ -34,22 +34,24 @@
     export let filter = 'all';
     let sort = 'abc';
     export let mode = 'full';
+    let search;
     let filteredData = brands;
     let sortedData = filteredData;
     let displayedGrade;
     let sortTitle;
     console.log(filter);
     function filterGrid () {
-
-        //filtering
-        if (filter == 'all') {
+        if (search) {
+            filteredData = brands.filter(function (i,n) {
+                return i.brand.toLowerCase().includes(search.toLowerCase());
+            })
+        } else if (filter == 'all') {
             filteredData = brands;
         } else {
             filteredData = brands.filter(function (i,n) {
                 return i.category.indexOf(filter) > -1;
             });
         }
-
         //sorting 
         if (sort == 'abc') {
             sortedData = filteredData.sort(function(a,b) {
@@ -57,7 +59,6 @@
             })
         } else if (sort == 'bic1') {
             sortTitle = 'Best in category: Climate Commitments and Energy Transparency'
-            displayedGrade = b.commitments_grade;
             sortedData = filteredData.sort(function(a,b) {
                 return a.commitments_grade.localeCompare(b.commitments_grade);
             })
@@ -97,7 +98,7 @@
 <Container>
     {#if mode == 'full'}
         <Row>
-            <Col sm=12 lg={{size:3,offset:3}}>
+            <Col sm=12 lg={{size:3,offset:1}}>
                 <div class="control">
                         <label for="cat">Filter by category:</label>
 
@@ -113,9 +114,9 @@
                         </select>
                 </div> 
             </Col>
-            <Col sm=12 lg={{size:3}}>
+            <Col sm=12 lg={{size:4}}>
                 <div class="control">
-                        <label for="sort">Sort brand grades by:</label>
+                        <label for="sort">Sort brand scores by:</label>
 
                         <!-- svelte-ignore a11y-no-onchange -->
                         <select bind:value={sort} on:change="{() => filterGrid()}" name="sort" id="order">
@@ -127,6 +128,14 @@
                             <option value="bic4">Best in category: Greeer shipping</option>
                             <option value="bic5">Best in category: Advocacy</option>
                         </select>
+                </div> 
+            </Col>
+            <Col sm=12 lg={{size:3}}>
+                <div class="control">
+                        <label for="search">Search for a brand:</label>
+
+                        <!-- svelte-ignore a11y-no-onchange -->
+                        <input type="text" bind:value={search} on:keyup="{() => filterGrid()}" name="search" id="order">
                 </div> 
             </Col>
         </Row>
@@ -194,8 +203,8 @@
 
     }
 
-    .control select {
+    .control select, .control input {
         width:100%;
-        margin-bottom:50px;
+        margin-bottom:30px;
     }
 </style>
