@@ -320,6 +320,7 @@
 	.name {
 		margin-top:25px;
 		font-weight:bold;
+		margin-left:10px;
 		
 	}
 
@@ -330,9 +331,9 @@
 
 	.logo {
 		max-width:150px;
-		padding-left:30px;
-		padding-right:30px;
-		margin-top:35px;
+		padding-left:20px;
+		padding-right:10px;
+		margin-top:27px;
 	}
 
 	.summary {
