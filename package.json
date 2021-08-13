@@ -6,11 +6,12 @@
   },
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "build": "rm -rf build && svelte-kit build && touch build/.nojekyll",
     "gdoc": "node scripts/fetch-google.js",
     "preview": "svelte-kit preview",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --write --plugin-search-dir=. ."
+    "format": "prettier --write --plugin-search-dir=. .",
+    "deploy": "npm run build && npx gh-pages -d build -t true"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.13",
@@ -23,6 +24,7 @@
     "eslint-plugin-svelte3": "^3.2.0",
     "font-awesome": "^4.7.0",
     "fontawesome-svelte": "^2.0.1",
+    "gh-pages": "^3.2.3",
     "layercake": "^4.1.1",
     "node-fetch": "^2.6.1",
     "prettier": "~2.2.1",

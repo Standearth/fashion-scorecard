@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import logo from '../svg/logo_white.svg';
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -22,8 +23,8 @@
 
 		<nav id="main-nav">
 			<ul>
-				<li class:active={$page.path === '/brand-scores'} on:click={() => {location.href='/brand-scores'}}><a sveltekit:prefetch href="/">Brand scores</a></li>
-				<li id="{headerColor}" class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">Take action</a></li>
+				<li class:active={$page.path === '{base}/brand-scores'}><a sveltekit:prefetch href="{base}/brand-scores">Brand scores</a></li>
+				<li id="{headerColor}" class:active={$page.path === '{base}/about'}><a sveltekit:prefetch href="{base}/about">Take action</a></li>
 				<li class:active={$page.path === '/'}><Hamburger bind:open={open} /></li>
 			</ul>
 		</nav>

@@ -1,5 +1,6 @@
 <script>
 	import Grid from '$lib/Grid.svelte';
+	import { base } from '$app/paths';
 	import {onMount} from 'svelte';
 	import { Col, Container, Row, Collapse, Accordion, AccordionItem} from 'sveltestrap';
 	import summary from "../data/summary.json";
@@ -10,6 +11,7 @@
 	import '../styles/app.css';
 	import '../styles/font.css';
 	let isOpen = false;
+	//export let brands;
 
 	onMount(() => {
 		setTimeout(() => {
@@ -79,7 +81,7 @@
 		</Row>
 		<Row>
 			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/climate-commitments-energy-transparency">
+				<a target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">
 					<div class="box">
 						<div class="boximg">
 							<img alt="logo" src="assets/images/s1.svg"> 
@@ -90,7 +92,7 @@
 				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-efficient-manufacturing">
+				<a target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-efficient-manufacturing">
 					<div class="box">
 						<div class="boximg">
 							<img alt="logo" src="assets/images/s2.svg"> 
@@ -101,7 +103,7 @@
 				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-advocacy">
+				<a target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-advocacy">
 					<div class="box">
 						<div class="boximg">
 							<img alt="logo" src="assets/images/s5.svg"> 
@@ -112,7 +114,7 @@
 				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/low-carbon-longer-lasting-materials">
+				<a target="_self" sveltekit:prefetch href="{base}/key-findings/low-carbon-longer-lasting-materials">
 					<div class="box">
 						<div class="boximg">
 							<img alt="logo" src="assets/images/s3.svg"> 
@@ -123,7 +125,7 @@
 				</a>
 			</Col>
 			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/greener-shipping">
+				<a target="_self" sveltekit:prefetch href="{base}/key-findings/greener-shipping">
 					<div class="box">
 						<div class="boximg">
 							<img alt="logo" src="assets/images/s4.svg"> 
