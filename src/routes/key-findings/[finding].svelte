@@ -1,24 +1,15 @@
 <script context="module">
-	import c from '../../data/content.json';
-	let res;
-	function loadData (slug) {
-		res = c;
-		return(res)
-	}
-	
+	import { base } from '$app/paths';
 	export async function load({ page, fetch }) {
-	  const slug = page.params.finding;
-	  //const url = `http://localhost:3000/src/data/${slug}.json`;
-	  
-		loadData(`${slug}`)
+		const slug = page.params.finding;
+		const body = await fetch(`${base}/key-findings/${slug}.json`)
+			.then((r) => r.json());
+		const content = body.content;
 		return {
-					props: {
-						content: res,
-						slug: `${slug}`
-					}
-				}
+			props: {content,slug}
+		};
 	}
-  </script>
+</script>
 
 <script>
 	import { Col, Container, Row, Popover, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';

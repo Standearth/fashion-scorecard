@@ -1,46 +1,14 @@
 <script context="module">
-	import data from '../data/sheet.json';
-	let res = "blue";
-	function loadData (slug) {
-		data.forEach(function(d) {
-			if (d.path == slug) {
-			  res = d;
-			  return res;
-		  }
-		})
-	}
-	
+	import { base } from '$app/paths';
 	export async function load({ page, fetch }) {
-	  const slug = page.params.brand;
-	  //const url = `http://localhost:3000/src/data/${slug}.json`;
-	  
-		loadData(`${slug}`)
-		console.log(res);
+		const slug = page.params.brand;
+		const content = await fetch(`${base}/${slug}.json`)
+			.then((r) => r.json());
+		
 		return {
-					props: {
-						content: res
-					}
-				}
-	}
-	/*import { base } from '$app/paths';
-	console.log(`${base}`);
-    export async function load(ctx) {
-		const url = `${base}/src/data/${ctx.page.params.brand}.json`;
-		const res = await fetch(url);
-
-		if (res.ok) {
-			return {
-				props: {
-					content: await res.json()
-				}
-			};
-		}
-
-		return {
-			status: 400,
-			error: new Error(`Could not load ${ctx.page.params.brand}`)
+			props: content
 		};
-	}*/
+	}
 </script>
 
 <script>
@@ -55,6 +23,7 @@
 	import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 	export let content;
+	console.log(content.brand);
 
 	onMount(() => {
 		createFootnotes();
@@ -76,9 +45,6 @@
 	<span>Fossil-free Fashion Scorecard</span>
 </div>
 
-{#await content}
-LOADING...
-{:then brand}
 
 <div class='brand-cover'>
 	<div class="overlay">
@@ -275,7 +241,7 @@ LOADING...
 			<Col sm=12 lg={{size:8, offset:2}}>
 					<div class="similar-companies">
 						<h3>Similar companies</h3>
-						<Grid mode="related" filter={brand.category}/>
+						<Grid mode="related" filter={content.category}/>
 						<p><a href="#fdsf"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
 						<hr />
 					</div>
@@ -314,7 +280,7 @@ LOADING...
 
 	  </Container>
 </div>
-{/await}
+
 
 <style>
 	.brand-cover {
