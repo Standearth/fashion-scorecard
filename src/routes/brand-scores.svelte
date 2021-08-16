@@ -76,24 +76,5 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		left:0;
 	}
 
-	.content {
-		display:block;
-	}
-
-	.bottomNav {
-		margin-top:50px;
-		margin-bottom:50px;
-		display:table;
-	}
-
-	.bottomNavItem {
-		padding:10px;
-		background:#DEEBF0;
-		min-width:270px;
-		height:80px;
-		display:table-cell;
-		vertical-align:middle;
-	}
-
 </style>
 

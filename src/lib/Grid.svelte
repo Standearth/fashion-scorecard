@@ -32,7 +32,7 @@
     }
 
     export let filter = 'all';
-    let sort = 'abc';
+    export let sort = 'abc';
     export let mode = 'full';
     let search;
     let filteredData = brands;
