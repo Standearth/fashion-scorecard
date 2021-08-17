@@ -10,6 +10,8 @@
     import '../styles/water.css';
 	import '../styles/app.css';
 	import '../styles/font.css';
+	import Fa from 'svelte-fa/src/fa.svelte'
+	import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 	let isOpen = false;
 	//export let brands;
 
@@ -39,7 +41,7 @@
 					<h2>{homepage.Section_1_title}</h2>
 					{@html homepage.Section_1_content}
 					<a sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">
-							Learn more 
+							Learn more <Fa icon="{faArrowRight}" size="1x"/>
 					</a>
 					
 				</div>
@@ -123,6 +125,10 @@
 	}
 	#s1img img {
 		max-height:400px;
+	}
+
+	a:hover {
+		color:var(--primary-color);
 	}
 
 	h2 {
