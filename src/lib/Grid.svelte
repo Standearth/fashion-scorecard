@@ -42,7 +42,11 @@
     function filterGrid () {
         if (search) {
             filteredData = brands.filter(function (i,n) {
-                return i.brand.toLowerCase().includes(search.toLowerCase());
+                for (var key in filter) {
+                    if (i.brand.toLowerCase().includes(search.toLowerCase()) || i.main_brands.toLowerCase().includes(search.toLowerCase()))
+                    return true;
+                }
+                return false;
             })
         } else if (filter == 'all') {
             filteredData = brands;
@@ -137,7 +141,7 @@
             </Col>
             <Col sm=12 lg={{size:3}}>
                 <div class="control">
-                        <label for="search">Search for a brand:</label>
+                        <label for="search">Search for a brand or subsidiary:</label>
 
                         <!-- svelte-ignore a11y-no-onchange -->
                         <input type="text" bind:value={search} on:keyup="{() => filterGrid()}" name="search" id="order">
