@@ -14,7 +14,7 @@
 	import Grade from '../lib/Grade.svelte'
 	import createFootnotes from '../lib/footnote.js'
 	import {onMount} from 'svelte'
-	import { Col, Container, Row, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
+	import { Col, Container, Row, Accordion, AccordionItem } from 'sveltestrap';
 	import Grid from '../lib/Grid.svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../lib/Header.svelte'
@@ -62,6 +62,14 @@
 				<div class="summary">
 					{@html content.summary}
 				</div>
+				{#if content.subsidiaries}
+					<div class="related-brands">
+						<h4>Main subsidiaries</h4>
+						{#each content.subsidiaries.split(',') as subs}
+						<img alt="{subs}" src="/assets/images/logos/{subs}.png">
+						{/each}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -339,7 +347,7 @@
 	.summary {
 		width:100%;
 		max-width:830px;
-		min-width:400px;
+		min-width:200px;
 		display:inline;
 		padding-top:40px;
 		padding-bottom:40px;
@@ -347,15 +355,35 @@
 		font-family:var(-sans);
 		color:rgb(47,94,128);
 		font-weight:lighter;
+		padding-right:10px;
 		
 	}
 
 	.related-brands {
-		background:#bbb;
-		margin-top:40px;
+		margin-top:5px;
 		float:right;
-		width:100%;
-		max-width:250px;
+		padding:20px;
+		max-width:350px;
+	}
+
+	@media (max-width:750px) {
+		.rower {
+			flex-wrap:wrap;
+		}
+		.summary {
+			flex-basis:100%;
+			padding-bottom:10px;
+		}
+
+		.related-brands {
+			flex-basis:100%;
+		}
+
+	}
+
+	.related-brands img {
+		max-width:150px;
+		padding:5px;
 	}
 
 	.brand-content h2 {
