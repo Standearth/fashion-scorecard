@@ -11,10 +11,10 @@
         <div id="menu-wrap">
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/">Home</a></p>
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/executive-summary">Executive Summary</a></p>
+            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Fashion's Fossil Fuel Problem</a></p>
             <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand Scores</a></p>
-            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Key Findings</a></p>
+            <p><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">Key Findings</a></p>
                 <ul>
-                    <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Fashion's Fossil Fuel Problem</a></li>
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">Climate Commitments and Energy Transparency</a></li>
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-efficient-manufacturing">Renewable & Energy Efficient Manufacturing</a></li>
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-advocacy">Renewable Energy Advocacy</a></li>

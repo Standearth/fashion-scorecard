@@ -18,12 +18,13 @@
 	import { onMount } from 'svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../../lib/Header.svelte'
+	import PieChart from '../../lib/PieChart.svelte'
 	import { faArrowRight, faArrowLeft, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 	export let content;
 	export let slug;
 
 	onMount(() => {
-		createFootnotes();
+		createFootnotes();		
 	});
 
 </script>
@@ -60,6 +61,7 @@
 			<Col sm=12 lg={{size:8, offset:2}}>
 				{#if slug == 'fashions-fossil-fuel-problem'}
 					{@html content.kf1_body_1}
+					<PieChart />
 					{@html content.kf1_body_2}
 					{@html content.kf1_body_3}
 					<div class="notes">
@@ -188,17 +190,17 @@
 										<Fa icon="{faArrowLeft}" size="1x"/>
 									</div>
 									{#if slug == 'fashions-fossil-fuel-problem'}
-										<a href="/key-findings/climate-commitments-energy-transparency"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>Executive Summary</strong></a>
+										<a target="_self"  href="/key-findings/climate-commitments-energy-transparency"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>Executive Summary</strong></a>
 									{:else if slug == 'climate-commitments-energy-transparency' }
-										<a href="/key-findings/fashions-fossil-fuel-problem"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf1_title}</strong></a>
+										<a target="_self"  href="/key-findings/fashions-fossil-fuel-problem"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf1_title}</strong></a>
 									{:else if slug == 'renewable-energy-efficient-manufacturing' }
-										<a href="/key-findings/climate-commitments-energy-transparency"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf2_title}</strong></a>
+										<a target="_self"  href="/key-findings/climate-commitments-energy-transparency"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf2_title}</strong></a>
 									{:else if slug == 'renewable-energy-advocacy' }
-										<a href="/key-findings/renewable-energy-efficient-manufacturing"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf3_title}</strong></a>
+										<a target="_self"  href="/key-findings/renewable-energy-efficient-manufacturing"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf3_title}</strong></a>
 									{:else if slug == 'low-carbon-longer-lasting-materials' }
-										<a href="/key-findings/renewable-energy-advocacy"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf4_title}</strong></a>
+										<a target="_self"  href="/key-findings/renewable-energy-advocacy"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf4_title}</strong></a>
 										{:else if slug == 'greener-shipping' }
-										<a href="/key-findings/low-carbon-longer-lasting-materials"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf5_title}</strong></a>
+										<a target="_self"  href="/key-findings/low-carbon-longer-lasting-materials"><Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf5_title}</strong></a>
 									{/if}
 								</div>
 							</Col>
@@ -208,15 +210,15 @@
 										<Fa icon="{faArrowRight}" size="1x"/>
 									</div>
 									{#if slug == 'fashions-fossil-fuel-problem'}
-										<a href="/key-findings/climate-commitments-energy-transparency"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf2_title}</strong> </a>
+										<a target="_self" href="/key-findings/climate-commitments-energy-transparency"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf2_title}</strong> </a>
 									{:else if slug == 'climate-commitments-energy-transparency' }
-										<a href="/key-findings/renewable-energy-efficient-manufacturing"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf3_title}</strong></a>
+										<a target="_self"  href="/key-findings/renewable-energy-efficient-manufacturing"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf3_title}</strong></a>
 									{:else if slug == 'renewable-energy-efficient-manufacturing' }
-										<a href="/key-findings/renewable-energy-advocacy"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf4_title}</strong> </a>
+										<a target="_self"  href="/key-findings/renewable-energy-advocacy"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf4_title}</strong> </a>
 									{:else if slug == 'renewable-energy-advocacy' }
-										<a href="/key-findings/low-carbon-longer-lasting-materials"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf5_title}</strong> </a>
+										<a target="_self"  href="/key-findings/low-carbon-longer-lasting-materials"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf5_title}</strong> </a>
 									{:else if slug == 'low-carbon-longer-lasting-materials' }
-										<a href="/key-findings/greener-shipping"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf6_title}</strong></a>
+										<a target="_self"  href="/key-findings/greener-shipping"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.kf6_title}</strong></a>
 										{:else if slug == 'greener-shipping' }
 										<a href="/methodology"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>{content.methodology_title}</strong></a>
 									{/if}

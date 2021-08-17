@@ -39,9 +39,7 @@
 					<h2>{homepage.Section_1_title}</h2>
 					{@html homepage.Section_1_content}
 					<a sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">
-						<button>
-							Learn more
-						</button>
+							Learn more 
 					</a>
 					
 				</div>
@@ -55,296 +53,34 @@
 	</Container>
 </div>
 
-<div class="section section-2">
+<div class="section section-3">
 	<Container>
 		<Row>
-			<Col sm=12 md={{size:8, offset:2}} lg={{size:8, offset:2}}>
-				<div id="s2copy">
-					<h2>{homepage.Section_2_title}</h2>
-					{@html homepage.Section_2_content}
-					{@html homepage.Section_2_content_2}
-					<!--<button on:click={() => (isOpen = !isOpen)} class="mb-3">
-						See full executive summary
-					</button>
-					<Collapse {isOpen}>
-						
-					</Collapse>-->
+			<Col sm=12 lg=8>
+				<div class="box">
+					<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/546159387?h=e29eaf2bdf&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 				</div>
 			</Col>
-		</Row>
-	</Container>
-	<Container>
-		<Row>
-			<Col sm=12 lg={{size:8, offset:2 }}>
-				<h2>{@html homepage.criteria_title}</h2>
-				<p>{@html homepage.criteria_opening}</p>
-			</Col>
-		</Row>
-		<Row>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s1.svg"> 
-						</div>
-						<h4>{homepage.Criteria1}</h4>
-						{homepage.Criteria1b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-efficient-manufacturing">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s2.svg"> 
-						</div>
-						<h4>{homepage.Criteria2}</h4>
-						{homepage.Criteria2b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="{base}/key-findings/renewable-energy-advocacy">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s5.svg"> 
-						</div>
-						<h4>{homepage.Criteria3}</h4>
-						{homepage.Criteria3b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="{base}/key-findings/low-carbon-longer-lasting-materials">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s3.svg"> 
-						</div>
-						<h4>{homepage.Criteria4}</h4>
-						{homepage.Criteria4b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="{base}/key-findings/greener-shipping">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s4.svg"> 
-						</div>
-						<h4>{homepage.Criteria5}</h4>
-						{homepage.Criteria5b}
-					</div>
-				</a>
-			</Col>
-			
-		</Row>
-		<Row>
-			<Col sm=12 lg={{size:8, offset:2 }}>
-				<h4>{homepage.Criteria_closing}</h4>
-			</Col>
-		</Row>
-	</Container>
-</div>
-
-<div class="section section-3">
-	<Container>	
-		<Row>
-			<Col sm=12 lg={{size:8,offset:2}}>
-				<h2>Major findings</h2>
-			<Accordion flush>
-				<AccordionItem active>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding1}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding1b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-					<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding2}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{homepage.Finding2b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding3}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding3b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding4}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding4b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding5}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding5b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding6}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding6b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding7}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding7b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding8}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding8b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-				<AccordionItem>
-					<div class="acc-header" slot="header">
-						<Row>
-							<Col sm=12>
-								<div class="section-title">
-									<h3>{@html homepage.Finding9}</h3>
-								</div>
-							</Col>
-						</Row>
-					</div>
-					<div class="acc-body">
-						<Row>
-							<Col sm=12>
-								<p>{@html homepage.Finding9b}</p>
-							</Col>
-						</Row>
-					</div>
-				</AccordionItem>
-				<hr/>
-			</Accordion>
-			<div class="notes">
-				<Accordion flush>
-					<AccordionItem active>
-						  <div class="notes-header" slot="header">
-							  <Row>
-								  <Col sm=12 lg=12>
-										<h4>Notes</h4>
-								  </Col>
-							  </Row>
-						  </div>
-						  <div class="notes-body">
-							  <Row>
-								  <Col sm=12>
-									{@html homepage.homepage_notes}
-								  </Col>
-							  </Row>
-						  </div>
-					  </AccordionItem>
-					</Accordion>
-				
-			</div>
+			<Col sm=12 lg=4>
+				<div class="box">
+					<h3>Read the report</h3>
+					<ul>
+						<li>
+							<a target="_self" sveltekit:prefetch href="{base}/executive-summary">Executive Summary</a>
+						</li>
+						<li>
+							<a target="_self" sveltekit:prefetch href="{base}/key-findings/fashions-fossil-fuel-problem">Fashion's Fossil Fuel Problem</a>
+						</li>
+						<li>
+							<a target="_self" sveltekit:prefetch href="{base}/key-findings/climate-commitments-energy-transparency">Key Findings</a>
+						</li>
+						<li>
+							<a target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand Scores</a>
+						</li>
+						<li>
+							<a href="#">Take Action</a>
+						</li>
+				</div>
 			</Col>
 		</Row>
 	</Container>
@@ -421,7 +157,6 @@
 		border-radius:6px;
 		font-size:17px;
 		color:var(--primary-color);
-		float:left;
 		border:1px solid var(--white);
 	}
 
@@ -432,47 +167,34 @@
 		margin:auto;
 	}
 
-	.box:hover {
-		border:1px solid #2F5E80;
-		
-	}
-
-	.boximg {
-		text-align:center;
-	}
-
-	.box img {
-		margin:auto;
-		max-height:50px;
-		max-width:70px;
-	}
-
-	.box:hover h4 {
-		color:var(--primary-color);
-		text-decoration:none;
-	}
-
-	.box h4:hover {
-		text-decoration:underline;
-	}
-
 	h4 {
 		font-size:18px;
 		color:var(--primary-color);
 		line-height:1.4;
 	}
 
-	.acc-header {
-		width:100%;
-	}
-
-	.acc-header h3 {
-		font-size:22px;
-		color:var(--primary-color);
-		font-weight:600;
-	}
-
 	#grid {
 		margin-top:100px;
 	}
+
+	ul {
+        list-style:none;
+    }
+	
+	ul li {
+		padding-bottom:5px;
+	}
+
+    ul li:before {
+        content: "";
+        border-color: transparent var(--primary-color);
+        border-style: solid;
+        border-width: 0.35em 0 0.35em 0.45em;
+        display: block;
+        height: 0;
+        width: 0;
+        left: -1em;
+        top: 1em;
+        position: relative;
+    }
 </style>

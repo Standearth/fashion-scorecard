@@ -18,13 +18,15 @@
     "@sveltejs/adapter-static": "^1.0.0-next.13",
     "@sveltejs/kit": "next",
     "archieml": "^0.4.2",
-    "d3": "^7.0.0",
+    "d3": "^7.0.1",
     "d3-dsv": "^3.0.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-svelte3": "^3.2.0",
     "font-awesome": "^4.7.0",
     "fontawesome-svelte": "^2.0.1",
+    "framework7": "^6.3.0",
+    "framework7-svelte": "^6.3.0",
     "gh-pages": "^3.2.3",
     "layercake": "^4.1.1",
     "node-fetch": "^2.6.1",
@@ -40,7 +42,10 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "apexcharts": "^3.27.3",
+    "svelte-apexcharts": "^1.0.2",
     "svelte-fa": "^2.2.1",
+    "svelte-frappe-charts": "^1.9.0",
     "svelte-scrollto": "^0.2.0"
   }
 }

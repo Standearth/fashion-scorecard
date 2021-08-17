@@ -212,7 +212,7 @@
 					</div>
 					<div class="acc-body">
 						<Row>
-							<Col sm={{size:11, offset:1}} lg={{size:9, offset:3}}>
+							<Col sm={{size:11, offset:1}} lg={{size:10, offset:2}}>
 								{@html content.advocacy_summary}
 							</Col>
 						</Row>

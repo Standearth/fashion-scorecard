@@ -31,7 +31,7 @@
 	</div>
 </div>
 
-<div class="section section-2">
+<div class="section section-1">
 	<Container>
 		<Row>
 			<Col sm=12 md={{size:8, offset:2}} lg={{size:8, offset:2}}>
@@ -48,80 +48,9 @@
 			</Col>
 		</Row>
 	</Container>
-	<Container>
-		<Row>
-			<Col sm=12 lg={{size:8, offset:2 }}>
-				<h2>{@html homepage.criteria_title}</h2>
-				<p>{@html homepage.criteria_opening}</p>
-			</Col>
-		</Row>
-		<Row>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/climate-commitments-energy-transparency">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s1.svg"> 
-						</div>
-						<h4>{homepage.Criteria1}</h4>
-						{homepage.Criteria1b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-efficient-manufacturing">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s2.svg"> 
-						</div>
-						<h4>{homepage.Criteria2}</h4>
-						{homepage.Criteria2b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-advocacy">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s5.svg"> 
-						</div>
-						<h4>{homepage.Criteria3}</h4>
-						{homepage.Criteria3b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/low-carbon-longer-lasting-materials">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s3.svg"> 
-						</div>
-						<h4>{homepage.Criteria4}</h4>
-						{homepage.Criteria4b}
-					</div>
-				</a>
-			</Col>
-			<Col sm=12 md=6 lg=4>
-				<a target="_self" sveltekit:prefetch href="/key-findings/greener-shipping">
-					<div class="box">
-						<div class="boximg">
-							<img alt="logo" src="assets/images/s4.svg"> 
-						</div>
-						<h4>{homepage.Criteria5}</h4>
-						{homepage.Criteria5b}
-					</div>
-				</a>
-			</Col>
-			
-		</Row>
-		<Row>
-			<Col sm=12 lg={{size:8, offset:2 }}>
-				<h4>{homepage.Criteria_closing}</h4>
-			</Col>
-		</Row>
-	</Container>
 </div>
 
-<div class="section section-3">
+<div class="section section-2">
 	<Container>	
 		<Row>
 			<Col sm=12 lg={{size:8,offset:2}}>
@@ -297,32 +226,110 @@
 						</Row>
 					</div>
 				</AccordionItem>
-				<hr/>
 			</Accordion>
-			<div class="notes">
-				<Accordion flush>
-					<AccordionItem active>
-						  <div class="notes-header" slot="header">
-							  <Row>
-								  <Col sm=12 lg=12>
-										<h4>Notes</h4>
-								  </Col>
-							  </Row>
-						  </div>
-						  <div class="notes-body">
-							  <Row>
-								  <Col sm=12>
-									{@html homepage.homepage_notes}
-								  </Col>
-							  </Row>
-						  </div>
-					  </AccordionItem>
-					</Accordion>
-				
-			</div>
 			</Col>
 		</Row>
 	</Container>
+</div>
+
+<div class="section section-3">
+	<Container>
+		<Row>
+			<Col sm=12 lg={{size:8, offset:2 }}>
+				<h2>{@html homepage.criteria_title}</h2>
+				<p>{@html homepage.criteria_opening}</p>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm=12 md=6 lg=4>
+				<a target="_self" sveltekit:prefetch href="/key-findings/climate-commitments-energy-transparency">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s1.svg"> 
+						</div>
+						<h4>{homepage.Criteria1}</h4>
+						{homepage.Criteria1b}
+					</div>
+				</a>
+			</Col>
+			<Col sm=12 md=6 lg=4>
+				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-efficient-manufacturing">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s2.svg"> 
+						</div>
+						<h4>{homepage.Criteria2}</h4>
+						{homepage.Criteria2b}
+					</div>
+				</a>
+			</Col>
+			<Col sm=12 md=6 lg=4>
+				<a target="_self" sveltekit:prefetch href="/key-findings/renewable-energy-advocacy">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s5.svg"> 
+						</div>
+						<h4>{homepage.Criteria3}</h4>
+						{homepage.Criteria3b}
+					</div>
+				</a>
+			</Col>
+			<Col sm=12 md=6 lg=4>
+				<a target="_self" sveltekit:prefetch href="/key-findings/low-carbon-longer-lasting-materials">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s3.svg"> 
+						</div>
+						<h4>{homepage.Criteria4}</h4>
+						{homepage.Criteria4b}
+					</div>
+				</a>
+			</Col>
+			<Col sm=12 md=6 lg=4>
+				<a target="_self" sveltekit:prefetch href="/key-findings/greener-shipping">
+					<div class="box">
+						<div class="boximg">
+							<img alt="logo" src="assets/images/s4.svg"> 
+						</div>
+						<h4>{homepage.Criteria5}</h4>
+						{homepage.Criteria5b}
+					</div>
+				</a>
+			</Col>
+			
+		</Row>
+		<Row>
+			<Col sm=12 lg={{size:8, offset:2 }}>
+				<h4>{homepage.Criteria_closing}</h4>
+			</Col>
+		</Row>
+		<Row>
+			<Col sm=12 lg={{size:8, offset:2}}>
+				<div class="notes">
+					<Accordion flush>
+						<AccordionItem active>
+							  <div class="notes-header" slot="header">
+								  <Row>
+									  <Col sm=12 lg=12>
+											<h4>Notes</h4>
+									  </Col>
+								  </Row>
+							  </div>
+							  <div class="notes-body">
+								  <Row>
+									  <Col sm=12>
+										{@html homepage.homepage_notes}
+									  </Col>
+								  </Row>
+							  </div>
+						  </AccordionItem>
+						</Accordion>
+					
+				</div>
+			</Col>
+		</Row>
+	</Container>
+	
 </div>
 
 <style>
@@ -385,7 +392,7 @@
 
 	.section-3 {
 		background:rgba(174,205,218,0.25);
-		padding-top:50px;
+		padding-top:30px;
 		padding-bottom:50px;
 	}
 
@@ -438,6 +445,10 @@
 		font-size:22px;
 		color:var(--primary-color);
 		font-weight:600;
+	}
+
+	.notes {
+		margin-top:50px;
 	}
 
 </style>
