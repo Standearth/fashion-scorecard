@@ -289,7 +289,7 @@
 			<Col sm=12 lg={{size:8, offset:2}}>
 					<div class="similar-companies">
 						<h3>Similar companies</h3>
-						<Grid mode="related" filter={content.category}/>
+						<Grid mode="related" filter={content.category.split(',')[0]}/>
 						<p><a href="#fdsf"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
 						<hr />
 					</div>
