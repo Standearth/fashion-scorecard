@@ -2,7 +2,7 @@
 	import Grid from '$lib/Grid.svelte';
 	import { base } from '$app/paths';
 	import {onMount} from 'svelte';
-	import { Col, Container, Row, Collapse, Accordion, AccordionItem} from 'sveltestrap';
+	import { Spinner, Col, Container, Row, Collapse, Accordion, AccordionItem} from 'sveltestrap';
 	import homepage from "../data/homepage.json";
 	import Header from '$lib/Header.svelte';
 	import createFootnotes from "../lib/footnote";
@@ -12,12 +12,14 @@
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 	let isOpen = false;
+	let loading = true;
 	//export let brands;
 
 	onMount(() => {
-		setTimeout(() => {
+		setTimeout(function() {
+			loading = false;
 			createFootnotes();
-		}, 2000);
+		}, 200);
 	});
 </script>
 
@@ -28,6 +30,14 @@
 	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
 	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
 </svelte:head>
+
+{#if loading} 
+
+	<div id="spinner">
+		<Spinner color=primary/>
+	</div>
+
+{:else}
 
 <Header headerColor="yellow"/>
 
@@ -94,6 +104,8 @@
 		</Row>
 	</Container>
 </div>
+
+{/if}
 
 <div class="section section-4">
 	<!-- svelte-ignore a11y-missing-content -->
@@ -214,4 +226,11 @@
         top: 1em;
         position: relative;
     }
+
+	#spinner {
+		width:100%;
+		height:600px;
+		margin-top:30%;
+		text-align:center;
+	}
 </style>

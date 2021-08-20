@@ -334,6 +334,21 @@
 					
 				</div>
 			</Col>
+			<div class="bottomNav">
+				<Container>
+					<Row>
+						<Col sm=12 lg={{size:6, offset:3}}>
+							<div class="bottomNavItem">
+								<div id="chevron-right">
+									<Fa icon="{faArrowRight}" size="1x"/>
+								</div>
+									<a target="_self" href="/key-findings/fashions-fossil-fuel-problem"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>Fashion's Fossil Fuel Problem</strong></a>
+								
+							</div>
+						</Col>
+					</Row>
+				</Container>
+			</div>
 		</Row>
 	</Container>
 	
@@ -467,6 +482,33 @@
 
 	.notes {
 		margin-top:50px;
+	}
+
+	.bottomNav {
+		margin-top:50px;
+		margin-bottom:50px;
+		display:table;
+		width:100%;
+	}
+
+	.bottomNav a {
+		color:var(--primary-color);
+	}
+
+	.bottomNavItem {
+		padding:20px;
+		background:#DEEBF0;
+		min-width:270px;
+		height:60px;
+		display:table-cell;
+		vertical-align:middle;
+	}
+
+	#chevron-right {
+		width:20px;
+		text-align:center;
+		height:100%;
+		float:right;
 	}
 
 </style>

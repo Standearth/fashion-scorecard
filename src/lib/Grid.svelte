@@ -5,9 +5,10 @@
      import Popup from "../lib/Popup.svelte"
      import {fade} from 'svelte/transition'
      import {onMount} from 'svelte'
-     import { Col, Container, Row } from 'sveltestrap';
+     import { Spinner, Col, Container, Row } from 'sveltestrap';
     import { page } from '$app/stores';
     let open = false;
+    let loading = true;
     let content = {
         name: 'Adidas',
         path: 'adidas',
@@ -99,6 +100,9 @@
         }
     }
     onMount(() => {
+		setTimeout(function() {
+			loading = false;
+		}, 200);
 		filterGrid();
 	});
     
@@ -106,6 +110,13 @@
 
 <Popup bind:open {...content} />
 
+{#if loading} 
+
+	<div id="spinner">
+		<Spinner color=primary/>
+	</div>
+
+{:else}
 
 <Container>
     {#if mode == 'full'}
@@ -175,7 +186,7 @@
             </Col>  
         </Row>
     </Container>
-
+{/if}
 
 
 <style>
@@ -218,4 +229,11 @@
         width:100%;
         margin-bottom:30px;
     }
+
+    #spinner {
+    width:100%;
+    height:200px;
+    margin-top:10%;
+    text-align:center;
+  }
 </style>

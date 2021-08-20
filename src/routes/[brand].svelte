@@ -14,7 +14,7 @@
 	import Grade from '../lib/Grade.svelte'
 	import createFootnotes from '../lib/footnote.js'
 	import {onMount} from 'svelte'
-	import { Col, Container, Row, Accordion, AccordionItem } from 'sveltestrap';
+	import { Col, Container, Row, Accordion, AccordionItem, Spinner } from 'sveltestrap';
 	import Grid from '../lib/Grid.svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../lib/Header.svelte'
@@ -24,8 +24,11 @@
 	import social from '../data/social.json'
 	export let content;
 	let socialContent;
+	let loading = false;
+	
 
 	function processSocialClick(channel) {
+		console.log(social);
         social.forEach(function(d) {
 		if (d.Brand == content.brand) {
 			socialContent = d;
@@ -58,8 +61,11 @@
 	
 
 	onMount(() => {
-		createFootnotes();
-		document.getElementsByClassName('accordion-collapse')[0].setAttribute('style','overflow:visible')
+		setTimeout(function() {
+			loading = false;
+			document.getElementsByClassName('accordion-collapse')[0].setAttribute('style','overflow:visible')
+			createFootnotes();
+		}, 200);
 	});
 
 	function updateFootnotes() {
@@ -87,39 +93,53 @@
 	<span>Fossil-free Fashion Scorecard</span>
 </div>
 
-
 <div class='brand-cover'>
 	<div class="overlay">
 		<div class="summary-content">
-			<div class="rower">
-				<div class="grade">
-					<Grade gradeDetail={content.grade} gradeType='overall' grade={content.grade.charAt(0)} />
+			{#if loading} 
+
+				<div id="spinner">
+				<Spinner color=primary/>
 				</div>
-				<div class="logo">
-					<img alt="{content.brand}" src="/assets/images/logos/{content.path}.png">
-				</div>
-				<div class="name">
-					<h1>{content.brand}</h1>
-				</div>
-			</div>
-			<div class="rower">
-				<div class="summary">
-					<p>{@html content.summary}</p>
-				</div>
-				{#if content.subsidiaries}
-					<div class="related-brands">
-						<h4>Main subsidiaries</h4>
-						{#each content.subsidiaries.split(',') as subs}
-						<img alt="{subs}" src="/assets/images/logos/{subs}.png">
-						{/each}
+
+			{:else}
+				<div class="rower">
+					<div class="grade">
+						<Grade gradeDetail={content.grade} gradeType='overall' grade={content.grade.charAt(0)} />
 					</div>
-				{/if}
-			</div>
+					<div class="logo">
+						<img alt="{content.brand}" src="/assets/images/logos/{content.path}.png">
+					</div>
+					<div class="name">
+						<h1>{content.brand}</h1>
+					</div>
+				</div>
+				<div class="rower">
+					<div class="summary">
+						<p>{@html content.summary}</p>
+					</div>
+					{#if content.subsidiaries}
+						<div class="related-brands">
+							<h4>Main subsidiaries</h4>
+							{#each content.subsidiaries.split(',') as subs}
+							<img alt="{subs}" src="/assets/images/logos/{subs}.png">
+							{/each}
+						</div>
+					{/if}
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
 
 <div class="brand-content">
+	{#if loading} 
+
+				<div id="spinner">
+				<Spinner color=primary/>
+				</div>
+
+	{:else}
 	<Container>
 		<Row>
 		  <Col sm=12 lg={{size:8, offset:2}}>
@@ -327,6 +347,7 @@
 		</Row>
 
 	  </Container>
+	  {/if}
 </div>
 
 
@@ -529,5 +550,12 @@
 		padding-top:15px;
 		padding-bottom:10px;
 	}
+
+	#spinner {
+    width:100%;
+    height:200px;
+    margin-top:10%;
+    text-align:center;
+  }
 </style>
 

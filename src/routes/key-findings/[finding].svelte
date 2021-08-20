@@ -159,10 +159,12 @@
 						</tbody>
 					</table>
 					{@html content.kf2_body_2}
-					<h4>Climate ambition of companies</h4>
-					<div style="text-align:center;padding:5px;"><span><i>Associated global warming pathway</i></span></div>
-					<img src="/assets/images/climate-ambition.png" alt="climate ambition of fashion companies">
-					<div style="text-align:center;padding:5px;margin-bottom:20px;"><span><i>2030 absolute scope 3 GHG emissions reduction target</i></span></div>
+					<div id="ambition-graphic">
+						<h4>Climate ambition of companies</h4>
+						<p>Associated global warming pathway</p>
+						<img src="/assets/images/climate-ambition.png" alt="climate ambition of fashion companies">
+						<p>2030 absolute scope 3 GHG emissions reduction target</p>
+					</div>
 					{@html content.kf2_body_3}
 					<div class="notes">
 						<Accordion flush>
@@ -447,6 +449,22 @@
 		text-align:center;
 		height:100%;
 		float:right;
+	}
+
+	#ambition-graphic {
+		padding:10px;
+		margin-bottom:20px;
+		text-align:center;
+	}
+
+	#ambition-graphic h4 {
+		padding-bottom:20px;
+		text-align:left;
+	}
+
+	#ambition-graphic p {
+		padding-top:10px;
+		color:var(--heading-blue);
 	}
 
 </style>

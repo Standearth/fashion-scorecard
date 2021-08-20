@@ -128,9 +128,8 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 	.bottomNavItem {
 		padding:20px;
 		background:#DEEBF0;
-		min-width:270px;
+		min-width:100%;
 		height:60px;
-		display:table-cell;
 		vertical-align:middle;
 	}
 
