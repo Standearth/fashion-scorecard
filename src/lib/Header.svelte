@@ -14,7 +14,7 @@
 	<Sidebar bind:open/>
 	<div class="wrapper">
 		<div class="corner">
-			<a href="https://stand.earth">
+			<a href="/">
 				<img src={logo} alt="Stand.earth" />
 			</a>
 		</div>
