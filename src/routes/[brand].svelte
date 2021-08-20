@@ -29,6 +29,7 @@
 
 	function processSocialClick(channel) {
 		console.log(social);
+
         social.forEach(function(d) {
 		if (d.Brand == content.brand) {
 			socialContent = d;
@@ -78,7 +79,7 @@
 </script>
 
 <svelte:head>
-	<title>{content.brand} | Fossil-free Fashion Scorecard | Stand.earth}</title>
+	<title>{content.brand} | Fossil-free Fashion Scorecard | Stand.earth</title>
 	<meta name="title" content="{content.brand} scored {content.grade} in our Fossil-free Fashion Scorecard | Stand.earth"/>
 	<meta property="og:title" content="{content.brand} scored {content.grade} in our Fossil-free Fashion Scorecard | Stand.earth"/>
 	<meta property="og:description" content="{processSocialClick()}"/>
@@ -310,7 +311,7 @@
 					<div class="similar-companies">
 						<h3>Similar companies</h3>
 						<Grid mode="related" filter={content.category.split(',')[0]}/>
-						<p><a href="#fdsf"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
+						<p><a target="_self" href="/brand-scores"><Fa icon="{faArrowLeft}" size="2x"/> View all companies</a></p>
 						<hr />
 					</div>
 					
