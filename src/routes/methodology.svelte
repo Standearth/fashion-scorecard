@@ -52,6 +52,7 @@
 		letter-spacing:2px;
 		font-size:2.4rem;
 		padding-top:15px;
+        padding-left:15px;
 		padding-bottom:10px;
 	}
 
@@ -66,6 +67,17 @@
 	.cover h1 {
 		margin-top:130px;
 	}
+
+    @media (max-width:600px) {
+		.cover h1 {
+			margin-top:60px;
+		}	
+
+		.banner span {
+			font-size:1.5rem;
+		}
+	}
+
 	.overlay {
 		background:rgba(255,255,255,0.8);
 		width:100%;

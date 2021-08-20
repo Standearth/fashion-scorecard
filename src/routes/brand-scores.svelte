@@ -42,6 +42,21 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		<div id="grid">
 			<Grid />
 		</div>
+		<div class="bottomNav">
+			<Container>
+				<Row>
+					<Col sm=12 lg={{size:6, offset:3}}>
+						<div class="bottomNavItem">
+							<div id="chevron-right">
+								<Fa icon="{faArrowRight}" size="1x"/>
+							</div>
+								<a href="/executive-summary"><Fa icon="{faClipboardList}" size="1x"/> Next section: <strong>Executive Summary</strong></a>
+							
+						</div>
+					</Col>
+				</Row>
+			</Container>
+		</div>
 		</Container>
 </div>
 <style>
@@ -59,6 +74,7 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		color:var(--primary-color);
 		letter-spacing:2px;
 		font-size:2.4rem;
+		padding-left:15px;
 		padding-top:15px;
 		padding-bottom:10px;
 	}
@@ -75,6 +91,16 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		margin-top:130px;
 	}
 
+	@media (max-width:600px) {
+		.cover h1 {
+			margin-top:60px;
+		}	
+
+		.banner span {
+			font-size:1.5rem;
+		}
+	}
+
 	.overlay {
 		background:rgba(255,255,255,0.8);
 		width:100%;
@@ -86,6 +112,33 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 
 	#grid {
 		padding-top:50px;
+	}
+
+	.bottomNav {
+		margin-top:50px;
+		margin-bottom:50px;
+		display:table;
+		width:100%;
+	}
+
+	.bottomNav a {
+		color:var(--primary-color);
+	}
+
+	.bottomNavItem {
+		padding:20px;
+		background:#DEEBF0;
+		min-width:270px;
+		height:60px;
+		display:table-cell;
+		vertical-align:middle;
+	}
+
+	#chevron-right {
+		width:20px;
+		text-align:center;
+		height:100%;
+		float:right;
 	}
 
 </style>

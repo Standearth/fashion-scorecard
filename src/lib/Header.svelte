@@ -21,7 +21,7 @@
 
 		<nav id="main-nav">
 			<ul>
-				<li class:active={$page.path === '{base}/brand-scores'}><a sveltekit:prefetch href="{base}/brand-scores">Brand scores</a></li>
+				<li class:active={$page.path === '{base}/brand-scores'}><a target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand scores</a></li>
 				<li id="{headerColor}"><a rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals">Take action</a></li>
 				<li class:active={$page.path === '/'}><Hamburger bind:open={open} /></li>
 			</ul>

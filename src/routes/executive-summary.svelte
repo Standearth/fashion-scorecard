@@ -255,7 +255,7 @@
 							<img alt="logo" src="assets/images/s1.svg"> 
 						</div>
 						<h4>{homepage.Criteria1}</h4>
-						{homepage.Criteria1b}
+						<p>{homepage.Criteria1b}</p>
 					</div>
 				</a>
 			</Col>
@@ -266,7 +266,7 @@
 							<img alt="logo" src="assets/images/s2.svg"> 
 						</div>
 						<h4>{homepage.Criteria2}</h4>
-						{homepage.Criteria2b}
+						<p>{homepage.Criteria2b}</p>
 					</div>
 				</a>
 			</Col>
@@ -277,7 +277,7 @@
 							<img alt="logo" src="assets/images/s5.svg"> 
 						</div>
 						<h4>{homepage.Criteria3}</h4>
-						{homepage.Criteria3b}
+						<p>{homepage.Criteria3b}</p>
 					</div>
 				</a>
 			</Col>
@@ -288,7 +288,7 @@
 							<img alt="logo" src="assets/images/s3.svg"> 
 						</div>
 						<h4>{homepage.Criteria4}</h4>
-						{homepage.Criteria4b}
+						<p>{homepage.Criteria4b}</p>
 					</div>
 				</a>
 			</Col>
@@ -299,7 +299,7 @@
 							<img alt="logo" src="assets/images/s4.svg"> 
 						</div>
 						<h4>{homepage.Criteria5}</h4>
-						{homepage.Criteria5b}
+						<p>{homepage.Criteria5b}</p>
 					</div>
 				</a>
 			</Col>
@@ -354,6 +354,7 @@
 		color:var(--primary-color);
 		letter-spacing:2px;
 		font-size:2.4rem;
+		padding-left:15px;
 		padding-top:15px;
 		padding-bottom:10px;
 	}
@@ -368,6 +369,16 @@
 
 	.cover h1 {
 		margin-top:130px;
+	}
+
+	@media (max-width:600px) {
+		.cover h1 {
+			margin-top:60px;
+		}	
+
+		.banner span {
+			font-size:1.5rem;
+		}
 	}
 	.overlay {
 		background:rgba(255,255,255,0.8);

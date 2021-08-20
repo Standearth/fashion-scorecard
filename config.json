@@ -19,6 +19,16 @@
 				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
 				"gid": "1719315523",
 				"filepath": "src/data/social.json"
+			},
+			{
+				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
+				"gid": "957778438",
+				"filepath": "src/data/table.json"
+			},
+			{
+				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
+				"gid": "772313660",
+				"filepath": "src/data/table2.json"
 			}
     ]
 }

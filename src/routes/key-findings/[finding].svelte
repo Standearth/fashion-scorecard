@@ -51,6 +51,7 @@
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../../lib/Header.svelte'
 	import PieChart from '../../lib/PieChart.svelte'
+	import table from '../../data/table.json'
 	import { faArrowRight, faArrowLeft, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 	export let content;
 	export let slug;
@@ -136,7 +137,33 @@
 					</div>
 				{:else if slug == 'climate-commitments-energy-transparency' }
 					{@html content.kf2_body_1}
+					<!-- svelte-ignore component-name-lowercase -->
+					<table>
+						<thead>
+							<tr>
+								<th>Company</th>
+								<th>Intensity-Based Commitment</th>
+								<th>Description</th>
+								<th>Absolute Reduction Equivalence</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each table as {c,i,d,a}}
+								<tr>
+									<td>{c}</td>
+									<td>{i}</td>
+									<td>{d}</td>
+									<td>{@html a}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
 					{@html content.kf2_body_2}
+					<h4>Climate ambition of companies</h4>
+					<div style="text-align:center;padding:5px;"><span><i>Associated global warming pathway</i></span></div>
+					<img src="/assets/images/climate-ambition.png" alt="climate ambition of fashion companies">
+					<div style="text-align:center;padding:5px;margin-bottom:20px;"><span><i>2030 absolute scope 3 GHG emissions reduction target</i></span></div>
+					{@html content.kf2_body_3}
 					<div class="notes">
 						<Accordion flush>
 							<AccordionItem>
@@ -336,11 +363,16 @@
 		text-transform:capitalize;
 	}
 
+	tbody {
+		font-family:var(--sans);
+	}
+
 	.banner span {
 		color:var(--primary-color);
 		letter-spacing:2px;
 		font-size:2.4rem;
 		padding-top:15px;
+		padding-left:15px;
 		padding-bottom:10px;
 	}
 
@@ -354,6 +386,16 @@
 
 	.cover h1 {
 		margin-top:130px;
+	}
+
+	@media (max-width:600px) {
+		.cover h1 {
+			margin-top:60px;
+		}	
+
+		.banner span {
+			font-size:1.5rem;
+		}
 	}
 	.overlay {
 		background:rgba(255,255,255,0.8);
@@ -380,8 +422,12 @@
 		display:table;
 	}
 
+	.bottomNav a {
+		color:var(--primary-color);
+	}
+
 	.bottomNavItem {
-		padding:10px;
+		padding:20px;
 		background:#DEEBF0;
 		min-width:270px;
 		height:60px;

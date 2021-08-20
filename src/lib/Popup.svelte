@@ -134,7 +134,7 @@
 	.name h1 {
 		color:var(--primary-color);
 		font-size:37px;
-        padding-top:20px;
+        padding-top:7px;
 	}
 
 	.logo {
