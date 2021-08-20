@@ -4,6 +4,7 @@
      import {base} from '$app/paths'    
      import Popup from "../lib/Popup.svelte"
      import {fade} from 'svelte/transition'
+     import {onMount} from 'svelte'
      import { Col, Container, Row } from 'sveltestrap';
     import { page } from '$app/stores';
     let open = false;
@@ -97,7 +98,9 @@
             })
         }
     }
-    filterGrid();
+    onMount(() => {
+		filterGrid();
+	});
     
 </script>
 

@@ -106,7 +106,7 @@
 			</Col>
 		</Row>	
 		<div id="grid">
-			<Grid />
+			<Grid sort="btow"/>
 		</div>
 		</Container>
 </div>
