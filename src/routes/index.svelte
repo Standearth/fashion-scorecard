@@ -22,6 +22,7 @@
 </script>
 
 <svelte:head>
+	<title>Fossil-free Fashion Scorecard | Stand.earth</title>
 	<meta name="title" content="Fossil-free Fashion Scorecard | Stand.earth"/>
 	<meta property="og:title" content="Fossil-free Fashion Scorecard | Stand.earth"/>
 	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
@@ -54,7 +55,7 @@
 			</Col>
 			<Col sm=12 lg=6>
 				<div id="s1img">
-					<img alt="iceberg" src="assets/images/iceberg.jpeg">
+					<!--<img alt="iceberg" src="assets/images/iceberg.jpeg">-->
 				</div>
 			</Col>
 		</Row>
