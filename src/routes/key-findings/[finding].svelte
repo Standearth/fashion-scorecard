@@ -11,8 +11,40 @@
 	}
 </script>
 
+<svelte:head>
+	{#if slug == 'fashions-fossil-fuel-problem'}
+			<title>{content.kf1_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf1_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf1_title} | Fossil-free Fashion Scorecard"/>
+		{:else if slug == 'climate-commitments-energy-transparency' }
+			<title>{content.kf2_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf2_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf2_title} | Fossil-free Fashion Scorecard"/>
+		{:else if slug == 'renewable-energy-efficient-manufacturing' }
+			<title>{content.kf3_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf3_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf3_title} | Fossil-free Fashion Scorecard"/>
+		{:else if slug == 'renewable-energy-advocacy' }
+			<title>{content.kf4_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf4_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf4_title} | Fossil-free Fashion Scorecard"/>
+		{:else if slug == 'low-carbon-longer-lasting-materials' }
+			<title>{content.kf5_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf5_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf5_title} | Fossil-free Fashion Scorecard"/>
+		{:else if slug == 'greener-shipping' }
+			<title>{content.kf6_title} | Fossil-free Fashion Scorecard | Stand.earth</title>
+			<meta name="title" content="{content.kf6_title} | Fossil-free Fashion Scorecard | Stand.earth"/>
+			<meta property="og:title" content="{content.kf6_title} | Fossil-free Fashion Scorecard"/>
+		{:else}
+			<title>404 Page not found</title>
+		{/if}
+	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+</svelte:head>
+
 <script>
-	import { Col, Container, Row, Popover, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
+	import { TabContent, TabPane, Col, Container, Row, Popover, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
 	import createFootnotes from '../../lib/footnote.js'
 	import Grid from '../../lib/Grid.svelte'
 	import { onMount } from 'svelte'
@@ -22,6 +54,8 @@
 	import { faArrowRight, faArrowLeft, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 	export let content;
 	export let slug;
+
+	let countries = ['Bangladesh','Cambodia','China','Indonesia','Taiwan','Turkey','Vietnam']
 
 	onMount(() => {
 		createFootnotes();		
@@ -61,7 +95,22 @@
 			<Col sm=12 lg={{size:8, offset:2}}>
 				{#if slug == 'fashions-fossil-fuel-problem'}
 					{@html content.kf1_body_1}
-					<PieChart />
+					<div id="grid-mix">
+						<h3>Grid mix by country</h3>
+						<TabContent>
+							{#each countries as country}
+								{#if country == 'Bangladesh'}
+									<TabPane tabId={country} tab={country} active>
+										<img alt="grid mix in {country}" src="/assets/images/charts/{country}.png">
+									</TabPane>
+								{:else}
+									<TabPane tabId={country} tab={country}>
+										<img alt="grid mix in {country}" src="/assets/images/charts/{country}.png">
+									</TabPane>
+								{/if}
+							{/each}
+						</TabContent>
+					</div>
 					{@html content.kf1_body_2}
 					{@html content.kf1_body_3}
 					<div class="notes">
@@ -190,7 +239,7 @@
 										<Fa icon="{faArrowLeft}" size="1x"/>
 									</div>
 									{#if slug == 'fashions-fossil-fuel-problem'}
-										<a target="_self"  href="/key-findings/climate-commitments-energy-transparency"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>Executive Summary</strong></a>
+										<a target="_self"  href="/executive-summary"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>Executive Summary</strong></a>
 									{:else if slug == 'climate-commitments-energy-transparency' }
 										<a target="_self"  href="/key-findings/fashions-fossil-fuel-problem"> <Fa icon="{faClipboardList}" size="1x"/> Previous section: <strong>{content.kf1_title}</strong></a>
 									{:else if slug == 'renewable-energy-efficient-manufacturing' }
@@ -244,8 +293,6 @@
 	</div>
 {:else if slug == 'renewable-energy-efficient-manufacturing' }
 	<div class="section section-4">
-		<!-- svelte-ignore a11y-missing-content -->
-		<a name="brand-scores"></a>
 		<Container>
 			<div id="grid">
 				<Grid sort="bic2" mode="related" />
@@ -254,8 +301,6 @@
 	</div>
 {:else if slug == 'renewable-energy-advocacy' }
 	<div class="section section-4">
-		<!-- svelte-ignore a11y-missing-content -->
-		<a name="brand-scores"></a>
 		<Container>
 			<div id="grid">
 				<Grid sort="bic5" mode="related" />
@@ -264,8 +309,6 @@
 	</div>
 {:else if slug == 'low-carbon-longer-lasting-materials' }
 	<div class="section section-4">
-		<!-- svelte-ignore a11y-missing-content -->
-		<a name="brand-scores"></a>
 		<Container>
 			<div id="grid">
 				<Grid sort="bic3" mode="related" />
@@ -274,8 +317,6 @@
 	</div>
 {:else if slug == 'greener-shipping' }
 	<div class="section section-4">
-		<!-- svelte-ignore a11y-missing-content -->
-		<a name="brand-scores"></a>
 		<Container>
 			<div id="grid">
 				<Grid sort="bic4" mode="related" />
@@ -283,6 +324,7 @@
 			</Container>
 	</div>
 {/if}
+
 <style>
 
 	.banner {
@@ -291,7 +333,7 @@
 		flex: 1 1 100%;
 		justify-content:center;
 		background:var(--secondary-color);
-		text-transform:uppercase;
+		text-transform:capitalize;
 	}
 
 	.banner span {
@@ -324,6 +366,12 @@
 
 	.content {
 		display:block;
+	}
+
+	#grid-mix {
+		text-align:center;
+		padding-top:10px;
+		padding-bottom:30px;
 	}
 
 	.bottomNav {

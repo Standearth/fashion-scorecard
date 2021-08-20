@@ -1,15 +1,23 @@
+<svelte:head>
+	<meta property="og:image" content="https://fashion.stand.earth/assets/images/SE-ScorecardCover-210729-D3-Desktop-Header-1366x675.png"/>
+	<link rel="canonical" href="https://fashion.stand.earth"/>
+	<meta property="og:url" content="https://fashion.stand.earth"/>
+	<link rel="image_src" href="https://fashion.stand.earth/assets/images/SE-ScorecardCover-210729-D3-Desktop-Header-1366x675.png"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</svelte:head>
+
 <script>
 	import '../styles/water.css';
 	import '../styles/app.css';
 	import '../styles/font.css';
 </script>
 
-
 <main>
 	<slot />
 </main>
 
-<div id="form-wrap"><iframe src="https://act.stand.earth/page/32295/data/1" frameBorder="0" class="inner_wrapper"></iframe></div>
+<div id="form-wrap"><iframe title="action_form" src="https://act.stand.earth/page/32295/data/1" frameBorder="0" class="inner_wrapper"></iframe></div>
 <footer>
 	<p>© Stand.earth  |  Media inquiries: <a href="mailto:media@stand.earth">media@stand.earth</a> |  Design: Erika Rathje / Illustration: Cheryl Loh</p>
 </footer>
@@ -65,6 +73,8 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding-left:20px;
+		padding-right:20px;
 	}
 
 	footer p {

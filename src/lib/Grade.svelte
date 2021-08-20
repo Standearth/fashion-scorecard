@@ -28,7 +28,7 @@
 
    .overall {
         height:145px;
-        width:75px;
+        width:85px;
         padding:0px;
         text-align:center;
         position:relative;
@@ -48,11 +48,11 @@
    .overall div {
        font-size:54.1px;
        padding-top:40px;
-       font-family:var(--sans);
+       font-family:var(--sans-bold);
    }
 
    .criteria {
-        font-family:var(--sans);
+        font-family:var(--sans-bold);
         font-size: 32px;
         line-height:44px;
         font-weight:bold;
@@ -68,10 +68,10 @@
    }
 
    .grid {
-        font-family:var(--sans);
+        font-family:var(--sans-bold);
+        font-weight:900;
         font-size: 24px;
-        line-height:30px;
-        font-weight:bold;
+        line-height:31px;
         color:rgb(13,13,13);
         border-radius:50%;
         text-align:center;

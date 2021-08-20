@@ -18,6 +18,39 @@
     export let path;
     export let grade;
     export let summary;
+    import social from '../data/social.json'
+	let socialContent;
+
+    function processSocialClick(channel) {
+        social.forEach(function(d) {
+		if (d.Brand == name) {
+			socialContent = d;
+		}
+        }); 
+
+        var twitterShare = {
+            message: encodeURIComponent(socialContent.Tweet + " https://fashion.stand.earth/" + path)
+        }
+    
+        var emailShare = {
+            subject: encodeURI(name + " scored "+grade+" in our fossil-free fashion scorecard"),
+            message: encodeURI(socialContent.Email)+"%0A%0A"+encodeURI("https://fashion.stand.earth/" + path)
+        }
+        var facebookShare = {
+            url: encodeURIComponent("https://fashion.stand.earth/"+path)+'%26en_chan%3Dfb%26ea.tracking.id%3Dfb-share'
+        }
+        if (channel == 'Facebook') {
+            return facebookShare.url;
+
+        } else if (channel == 'Twitter') {
+            return twitterShare.message;
+
+        } else if (channel == 'Email') {
+            return emailShare;
+        }
+    }
+
+    
 </script>
 
 <div class="overlay">
@@ -33,7 +66,7 @@
                             <Grade gradeDetail={grade} gradeType='overall' grade={grade.charAt(0)} />
                         </div>
                         <div class="logo">
-                            <img alt="{name}" src="assets/images/logos/{path}.png">
+                            <img alt="{name}" src="/assets/images/logos/{path}.png">
                         </div>
                         <div class="name">
                             <h1>{name}</h1>
@@ -43,14 +76,14 @@
                 <Row>
                     <div class="summary-content">
                         <div class="summary">
-                            {@html summary}
+                           <p> {@html summary}</p>
                         </div>
                     </div>
                     <div class="actions">
                         <a href="/{path}" on:click={toggle}>View full summary <Fa icon="{faArrowRight}" size="1x"/></a>
-                        <a href="#facebook"><Fa icon="{faFacebook}" color="#2C72F6" size="2x"/></a>
-                        <a href="#twitter"><Fa icon="{faTwitter}" color="#1DA1F2" size="2x" /></a>
-                        <a href="#email"><Fa icon="{faEnvelope}" color="#2F5E80" size="2x"/></a>
+                        <a rel="external" target="_new" href="https://www.facebook.com/sharer.php?u={processSocialClick('Facebook')}"><Fa icon="{faFacebook}" color="#2C72F6" size="2x"/></a>
+                        <a rel="external" target="_new" href="https://twitter.com/intent/tweet?text={processSocialClick('Twitter')}"><Fa icon="{faTwitter}" color="#1DA1F2" size="2x" /></a>
+                        <a rel="external" target="_new" href="mailto:?subject={processSocialClick('Email').subject}&body={processSocialClick('Email').message}"><Fa icon="{faEnvelope}" color="#2F5E80" size="2x"/></a>
                     </div>
                 </Row>
             </Container>
@@ -101,6 +134,7 @@
 	.name h1 {
 		color:var(--primary-color);
 		font-size:37px;
+        padding-top:20px;
 	}
 
 	.logo {

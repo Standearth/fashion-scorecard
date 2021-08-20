@@ -10,6 +10,14 @@
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 </script>
 
+<svelte:head>
+	<title>Brand Scores | Fossil-free Fashion Scorecard | Stand.earth</title>
+	<meta name="title" content="Brand Scores | Fossil-free Fashion Scorecard | Stand.earth"/>
+	<meta property="og:title" content="Brand Scores | Fossil-free Fashion Scorecard"/>
+	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+</svelte:head>
+
 <Header headerColor="blue"/>
 
 <div class="banner">
@@ -44,7 +52,7 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		flex: 1 1 100%;
 		justify-content:center;
 		background:var(--secondary-color);
-		text-transform:uppercase;
+		text-transform:capitalize;
 	}
 
 	.banner span {
@@ -74,6 +82,10 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 		position:absolute;
 		top:0;
 		left:0;
+	}
+
+	#grid {
+		padding-top:50px;
 	}
 
 </style>

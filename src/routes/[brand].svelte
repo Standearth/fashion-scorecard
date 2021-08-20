@@ -21,7 +21,41 @@
 	import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 	import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+	import social from '../data/social.json'
 	export let content;
+	let socialContent;
+
+	function processSocialClick(channel) {
+        social.forEach(function(d) {
+		if (d.Brand == content.brand) {
+			socialContent = d;
+		}
+        }); 
+
+        var twitterShare = {
+            message: encodeURIComponent(socialContent.Tweet + " https://fashion.stand.earth/" + content.path)
+        }
+    
+        var emailShare = {
+            subject: encodeURI(content.brand + " scored "+content.grade+" in our fossil-free fashion scorecard"),
+            message: encodeURI(socialContent.Email)+"%0A%0A"+encodeURI("https://fashion.stand.earth/" + content.path)
+        }
+        var facebookShare = {
+            url: encodeURIComponent("https://fashion.stand.earth/"+content.path)+'%26en_chan%3Dfb%26ea.tracking.id%3Dfb-share'
+        }
+        if (channel == 'Facebook') {
+            return facebookShare.url;
+
+        } else if (channel == 'Twitter') {
+            return twitterShare.message;
+
+        } else if (channel == 'Email') {
+            return emailShare;
+        } else {
+			return socialContent.Facebook;
+		}
+    }
+	
 
 	onMount(() => {
 		createFootnotes();
@@ -36,6 +70,16 @@
 	}
 
 </script>
+
+<svelte:head>
+	<title>{content.brand} | Fossil-free Fashion Scorecard | Stand.earth}</title>
+	<meta name="title" content="{content.brand} scored {content.grade} in our Fossil-free Fashion Scorecard | Stand.earth"/>
+	<meta property="og:title" content="{content.brand} scored {content.grade} in our Fossil-free Fashion Scorecard | Stand.earth"/>
+	<meta property="og:description" content="{processSocialClick()}"/>
+	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+	<link rel="canonical" href="https://fashion.stand.earth"/>
+	<meta property="og:url" content="https://fashion.stand.earth/{content.path}"/>
+</svelte:head>
 
 <Header headerColor="blue"/>
 
@@ -60,7 +104,7 @@
 			</div>
 			<div class="rower">
 				<div class="summary">
-					{@html content.summary}
+					<p>{@html content.summary}</p>
 				</div>
 				{#if content.subsidiaries}
 					<div class="related-brands">
@@ -234,9 +278,10 @@
 			<Col sm=12 lg={{size:8, offset:2}}>
 					<div class="brand-share">
 						<p>Share {content.brand}'s results: 
-							<a href="#facebook"><Fa icon="{faFacebook}" color="#2C72F6" size="2x"/></a>
-							<a href="#twitter"><Fa icon="{faTwitter}" color="#1DA1F2" size="2x" /></a>
-							<a href="#email"><Fa icon="{faEnvelope}" color="#2F5E80" size="2x"/></a></p>
+							<a rel="external" target="_new" href="https://www.facebook.com/sharer.php?u={processSocialClick('Facebook')}"><Fa icon="{faFacebook}" color="#2C72F6" size="2x"/></a>
+                        	<a rel="external" target="_new" href="https://twitter.com/intent/tweet?text={processSocialClick('Twitter')}"><Fa icon="{faTwitter}" color="#1DA1F2" size="2x" /></a>
+                        	<a rel="external" target="_new" href="mailto:?subject={processSocialClick('Email').subject}&body={processSocialClick('Email').message}"><Fa icon="{faEnvelope}" color="#2F5E80" size="2x"/></a>
+						</p>
 					</div>
 			</Col>
 		</Row>
@@ -286,6 +331,9 @@
 
 
 <style>
+	a {
+		color:var(--primary-color);
+	}
 	.brand-cover {
 		background-image:url('/assets/images/brand-cover.jpg');
 		background-position:top;
@@ -322,7 +370,6 @@
 
 	.grade {
 		margin-top:-10px;
-		
 	}
 
 	.name {
@@ -389,7 +436,6 @@
 	.brand-content h2 {
 		color: var(--dark-red);
 		font-size: 30px;
-		font-family:var(--sans);
 		font-weight:600;
 	}
 
@@ -473,7 +519,7 @@
 		flex: 1 1 100%;
 		justify-content:center;
 		background:var(--secondary-color);
-		text-transform:uppercase;
+		text-transform:capitalize;
 	}
 
 	.banner span {

@@ -55,6 +55,7 @@
         left:-10px;
         top:-2px;
         color:var(--heading-blue);
+        font-family:var(--sans)
     }
 	
 	.open #middle {

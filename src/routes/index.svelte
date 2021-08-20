@@ -3,7 +3,6 @@
 	import { base } from '$app/paths';
 	import {onMount} from 'svelte';
 	import { Col, Container, Row, Collapse, Accordion, AccordionItem} from 'sveltestrap';
-	import summary from "../data/summary.json";
 	import homepage from "../data/homepage.json";
 	import Header from '$lib/Header.svelte';
 	import createFootnotes from "../lib/footnote";
@@ -21,6 +20,13 @@
 		}, 2000);
 	});
 </script>
+
+<svelte:head>
+	<meta name="title" content="Fossil-free Fashion Scorecard | Stand.earth"/>
+	<meta property="og:title" content="Fossil-free Fashion Scorecard | Stand.earth"/>
+	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
+</svelte:head>
 
 <Header headerColor="yellow"/>
 
@@ -110,6 +116,10 @@
 		width:100%;
 	}
 
+	a {
+		color:var(--primary-color);
+	}
+
 	p {
 		font-size:18px;
 		font-weight:lighter;
@@ -180,7 +190,7 @@
 	}
 
 	#grid {
-		margin-top:100px;
+		margin-top:50px;
 	}
 
 	ul {

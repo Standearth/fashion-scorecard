@@ -14,6 +14,11 @@
 				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
 				"gid": "0",
 				"filepath": "src/data/sheet.json"
+			},
+			{
+				"id": "1Zqxu_L0SY6a6wvKTVAmDXd1uYn-r4uVKjF8XZNyXoe8",
+				"gid": "1719315523",
+				"filepath": "src/data/social.json"
 			}
     ]
 }

@@ -22,7 +22,7 @@
 		<nav id="main-nav">
 			<ul>
 				<li class:active={$page.path === '{base}/brand-scores'}><a sveltekit:prefetch href="{base}/brand-scores">Brand scores</a></li>
-				<li id="{headerColor}" class:active={$page.path === '{base}/about'}><a sveltekit:prefetch href="{base}/about">Take action</a></li>
+				<li id="{headerColor}"><a rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals">Take action</a></li>
 				<li class:active={$page.path === '/'}><Hamburger bind:open={open} /></li>
 			</ul>
 		</nav>
@@ -99,6 +99,7 @@
 
 	nav#main-nav li:nth-child(2) a {
 		color:var(--primary-color);
+		font-family:var(--sans-bold);
 	}
 
 	@media screen and (max-width:700px) {
@@ -116,7 +117,6 @@
 		align-items: center;
 		padding: 0 1em;
 		color: var(--white);
-		font-weight: 700;
 		font-size: 1rem;
 		letter-spacing: 10%;
 		text-decoration: none;
@@ -125,7 +125,11 @@
 	}
 
 	nav#main-nav a:hover {
-		color: var(--accent-color);
+		color: var(--white);
+	}
+
+	a {
+		font-family:var(--sans-bold);
 	}
 
 	

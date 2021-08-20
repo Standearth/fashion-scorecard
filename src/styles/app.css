@@ -1,6 +1,7 @@
 :root {
 	font-family: var(--sans);
 	--sans: 'Montserrat', Helvetica, Arial, sans-serif;
+	--form-font: 'Montserrat Light', Helvetica, Arial, sans-serif;
 	--sans-bold: 'Montserrat Bold', Helvetica;
 	--white: #ffffff;
 	--primary-color: #272B41;
@@ -20,7 +21,7 @@ body {
 	min-height: 100vh;
 	margin: 0;
 	background-color: var(--white);
-	font-family:var(--sans);
+	font-family:var(--sans-bold) !important;
 }
 
 body::before {
@@ -39,16 +40,20 @@ body::before {
 	opacity: 0.05;
 }
 
+
+
 h1,
 h2,
-p {
+p,li {
 	font-weight: 400;
 	color: var(--heading-color);
+	font-family:var(--sans);
 }
 
 p {
 	line-height: 1.5;
 	font-size:18px;
+	margin-top:1rem !important;
 	font-weight:lighter;
 }
 
@@ -58,7 +63,7 @@ blockquote {
 }
 
 a {
-	color: var(--accent-color);
+	color: var(--primary-color);
 	text-decoration: none;
 }
 
@@ -66,9 +71,16 @@ a:hover {
 	text-decoration: underline;
 }
 
+h1,h2,h3,h4,h5 {
+	font-family:var(--sans-bold);
+}
+
+strong,b {
+	font-family:var(--sans-bold);
+}
+
 h1 {
 	font-size: 2rem;
-	margin-bottom: 0 0 1em 0;
 	text-align: center;
 }
 
@@ -186,3 +198,23 @@ button:focus:not(:focus-visible) {
 	  font-weight:lighter;
 	  padding-bottom:5px;
   }
+
+  /* Tabs formatting */
+
+
+  .nav-tabs a {
+	  color:var(--primary-color)
+  }
+
+  .nav-tabs a:hover {
+	  color:var(--heading-blue);
+  }
+
+  .tab-pane {
+	transition: all 0.5s ease;
+  }
+
+  .nav-link:hover, .nav-item.show .nav-link {
+	  border:0px;
+  }
+

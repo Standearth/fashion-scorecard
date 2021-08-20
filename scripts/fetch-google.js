@@ -55,7 +55,7 @@ function tsvJson(tsv) {
 			obj[headers[j]] = currentline[j];
 		}
 		result.push(obj);
-		saveFile(currentline[1],JSON.stringify(obj));
+		//saveFile(currentline[1],JSON.stringify(obj));
 	}
 	return JSON.stringify(result); //JSON
 }

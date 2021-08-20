@@ -141,7 +141,7 @@
             </Col>
             <Col sm=12 lg={{size:3}}>
                 <div class="control">
-                        <label for="search">Search for a brand or subsidiary:</label>
+                        <label for="search">Search for a brand:</label>
 
                         <!-- svelte-ignore a11y-no-onchange -->
                         <input type="text" bind:value={search} on:keyup="{() => filterGrid()}" name="search" id="order">
