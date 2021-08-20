@@ -40,7 +40,7 @@ import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 			</Col>
 		</Row>	
 		<div id="grid">
-			<Grid />
+			<Grid sort="btow"/>
 		</div>
 		<div class="bottomNav">
 			<Container>
