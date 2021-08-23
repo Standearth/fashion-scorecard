@@ -28,7 +28,6 @@
 	
 
 	function processSocialClick(channel) {
-		console.log(social);
 
         social.forEach(function(d) {
 		if (d.Brand == content.brand) {
@@ -550,6 +549,13 @@
 		font-size:2.4rem;
 		padding-top:15px;
 		padding-bottom:10px;
+		padding-left:15px;
+	}
+
+	@media (max-width:600px) {
+		.banner span {
+			font-size:1.5rem;
+		}
 	}
 
 	#spinner {
