@@ -66,36 +66,36 @@
             sortTitle = 'Best in category: Climate Commitments and Energy Transparency'
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.commitments_grade[0].localeCompare(b.commitments_grade[0]) || order[a.commitments_grade[1]] - order[b.commitments_grade[1]];
+                return a.commitments_grade[0].localeCompare(b.commitments_grade[0]) || order[a.commitments_grade[1]] - order[b.commitments_grade[1]] || a.brand.localeCompare(b.brand);
             })
         } else if (sort == 'bic2') {
             sortTitle = 'Best in category: Renewables & Energy Efficient Manufacturing'
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.renewable_grade[0].localeCompare(b.renewable_grade[0]) || order[a.renewable_grade[1]] - order[b.renewable_grade[1]];
+                return a.renewable_grade[0].localeCompare(b.renewable_grade[0]) || order[a.renewable_grade[1]] - order[b.renewable_grade[1]] || a.brand.localeCompare(b.brand);
             })
         } else if (sort == 'bic3') {
             sortTitle = 'Best in category: Low Carbon Materials'
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.materials_grade[0].localeCompare(b.materials_grade[0]) || order[a.materials_grade[1]] - order[b.materials_grade[1]];
+                return a.materials_grade[0].localeCompare(b.materials_grade[0]) || order[a.materials_grade[1]] - order[b.materials_grade[1]] || a.brand.localeCompare(b.brand);
             })
         } else if (sort == 'bic4') {
             sortTitle = 'Best in category: Greener Shipping'
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.shipping_grade[0].localeCompare(b.shipping_grade[0]) || order[a.shipping_grade[1]] - order[b.shipping_grade[1]];
+                return a.shipping_grade[0].localeCompare(b.shipping_grade[0]) || order[a.shipping_grade[1]] - order[b.shipping_grade[1]] || a.brand.localeCompare(b.brand);
             })
         } else if (sort == 'bic5') {
             sortTitle = 'Best in category: Renewable Energy Advocacy'
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.advocacy_grade[0].localeCompare(b.advocacy_grade[0]) || order[a.advocacy_grade[1]] - order[b.advocacy_grade[1]];
+                return a.advocacy_grade[0].localeCompare(b.advocacy_grade[0]) || order[a.advocacy_grade[1]] - order[b.advocacy_grade[1]] || a.brand.localeCompare(b.brand);
             })
         } else {
             sortedData = filteredData.sort(function(a,b) {
                 const order = { '+': -1, '-': 1, undefined: 0 };
-                return a.grade[0].localeCompare(b.grade[0]) || order[a.grade[1]] - order[b.grade[1]];
+                return a.grade[0].localeCompare(b.grade[0]) || order[a.grade[1]] - order[b.grade[1]] || a.brand.localeCompare(b.brand);
             })
         }
     }

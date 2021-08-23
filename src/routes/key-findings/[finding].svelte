@@ -44,13 +44,12 @@
 </svelte:head>
 
 <script>
-	import { TabContent, TabPane, Col, Container, Row, Popover, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
+	import { TabContent, TabPane, Col, Container, Row, Accordion, AccordionItem } from 'sveltestrap';
 	import createFootnotes from '../../lib/footnote.js'
 	import Grid from '../../lib/Grid.svelte'
 	import { onMount } from 'svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../../lib/Header.svelte'
-	import PieChart from '../../lib/PieChart.svelte'
 	import table from '../../data/table.json'
 	import { faArrowRight, faArrowLeft, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 	export let content;
@@ -95,12 +94,15 @@
 		<Row>
 			<Col sm=12 lg={{size:8, offset:2}}>
 				{#if slug == 'fashions-fossil-fuel-problem'}
+					{@html content.kf1_intro}
+					<h3 style="text-align:center;">Fashion's fossil fuel problem</h3>
+					<img alt="iceberg" src="/assets/images/iceberg-graphic@2x.png">
 					{@html content.kf1_body_1}
 					<div id="grid-mix">
 						<h3>Grid mix by country</h3>
 						<TabContent>
 							{#each countries as country}
-								{#if country == 'Bangladesh'}
+								{#if country == 'China'}
 									<TabPane tabId={country} tab={country} active>
 										<img alt="grid mix in {country}" src="/assets/images/charts/{country}.png">
 									</TabPane>
@@ -113,6 +115,8 @@
 						</TabContent>
 					</div>
 					{@html content.kf1_body_2}
+					<h3 style="text-align:center;">Fracked fashion's supply chain</h3>
+					<img alt="fracking" src="/assets/images/fracking.png">
 					{@html content.kf1_body_3}
 					<div class="notes">
 						<Accordion flush>
@@ -410,6 +414,11 @@
 
 	.content {
 		display:block;
+	}
+
+	.content img {
+		padding-top:20px;
+		padding-bottom:20px;
 	}
 
 	#grid-mix {

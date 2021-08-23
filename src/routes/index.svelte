@@ -53,9 +53,10 @@
 <div class="section section-1">
 	<Container>
 		<Row>
-			<Col sm=12 lg=6>
+			<h2>{homepage.Section_1_title}</h2>
+			<Col sm=12 lg=5>
 				<div id="s1copy">
-					<h2>{homepage.Section_1_title}</h2>
+					
 					{@html homepage.Section_1_content}
 					<a sveltekit:prefetch href="/key-findings/fashions-fossil-fuel-problem">
 							Learn more <Fa icon="{faArrowRight}" size="1x"/>
@@ -63,9 +64,9 @@
 					
 				</div>
 			</Col>
-			<Col sm=12 lg=6>
+			<Col sm=12 lg=7>
 				<div id="s1img">
-					<!--<img alt="iceberg" src="assets/images/iceberg.jpeg">-->
+					<img alt="iceberg" src="/assets/images/iceberg-graphic@2x.png">
 				</div>
 			</Col>
 		</Row>
@@ -145,9 +146,6 @@
 
 	#s1img {
 		text-align:center;
-	}
-	#s1img img {
-		max-height:400px;
 	}
 
 	a:hover {
