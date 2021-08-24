@@ -22,6 +22,7 @@
 <svelte:head>
 	<meta name="title" content="Executive Summary | Fossil-free Fashion Scorecard | Stand.earth"/>
 	<meta property="og:title" content="Executive Summary | Fossil-free Fashion Scorecard"/>
+	<meta property="og:url" content="https://fashion.stand.earth/executive-summary"/>
 	<meta property="og:description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
 	<meta name="description" content="As one of the biggest drivers of climate pollution, fashion companies must move decisively to break their dependence on fossil fuels, spurring the rapid transition to renewable energy and fossil free fabrics we need to safeguard a livable future."/>
 </svelte:head>
