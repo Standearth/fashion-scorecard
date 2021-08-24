@@ -71,13 +71,13 @@
         font-family:var(--sans-bold);
         font-weight:900;
         font-size: 24px;
-        line-height:31px;
+        line-height:34px;
         color:rgb(13,13,13);
         border-radius:50%;
         text-align:center;
         margin:auto;
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
    }
 
    .grid div {
