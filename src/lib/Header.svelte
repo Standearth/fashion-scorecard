@@ -14,7 +14,7 @@
 	<Sidebar bind:open/>
 	<div class="wrapper">
 		<div class="corner">
-			<a href="/">
+			<a target="_self" href="https://fashion.stand.earth">
 				<img src={logo} alt="Stand.earth" />
 			</a>
 		</div>
