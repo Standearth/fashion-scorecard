@@ -98,7 +98,7 @@
 							<a target="_self" sveltekit:prefetch href="{base}/brand-scores">Brand Scores</a>
 						</li>
 						<li>
-							<a href="#">Take Action</a>
+							<a rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals">Take Action</a>
 						</li>
 				</div>
 			</Col>
