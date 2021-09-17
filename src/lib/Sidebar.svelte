@@ -22,7 +22,7 @@
                     <li ><a on:click={() => open = !open} target="_self" sveltekit:prefetch href="{base}/key-findings/greener-shipping">Greener Shipping</a></li>
                 </ul>
             <p><a on:click={() => open = !open} sveltekit:prefetch href="{base}/methodology">Methodology</a></p>
-            <!--<p><a on:click={() => open = !open} sveltekit:prefetch href="{base}/#download"><Fa icon="{faFileDownload}"/> Download PDF</a></p>-->
+            <p><a on:click={() => open = !open} rel="external" target="_new" href="https://www.stand.earth/sites/stand/files/fashion-scorecard-final-draft.pdf"><Fa icon="{faFileDownload}"/> Download PDF</a></p>
             <p><a on:click={() => open = !open} rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals"><button>Take Action</button></a></p>
         </div>
         
