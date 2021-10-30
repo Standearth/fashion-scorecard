@@ -35,7 +35,7 @@
     "prettier-plugin-svelte": "^2.2.0",
     "shelljs": "^0.8.4",
     "sirv-cli": "^1.0.11",
-    "svelte": "^3.34.0",
+    "svelte": "^3.44.0",
     "sveltestrap": "^5.4.0"
   },
   "type": "module",
