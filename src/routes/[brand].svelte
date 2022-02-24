@@ -1,7 +1,7 @@
 <script context="module">
 	import { base } from '$app/paths';
-	export async function load({ page, fetch }) {
-		const slug = page.params.brand;
+	export async function load({ params, fetch }) {
+		const slug = params.brand;
 		const content = await fetch(`${base}/${slug}.json`)
 			.then((r) => r.json());
 		return {
