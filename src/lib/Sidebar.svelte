@@ -2,7 +2,7 @@
     import { page } from '$app/stores'
     import { base } from '$app/paths'
     import Fa from 'svelte-fa/src/fa.svelte'
-	import { faFileDownload } from '@fortawesome/free-solid-svg-icons'
+	import { faFileDownload,faRss,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 	export let open = false;
 </script>
 
@@ -23,6 +23,8 @@
                 </ul>
             <p><a on:click={() => open = !open} sveltekit:prefetch href="{base}/methodology">Methodology</a></p>
             <p><a on:click={() => open = !open} rel="external" target="_new" href="https://www.stand.earth/sites/stand/files/stand-fossil-free-fashion-scorecard.pdf"><Fa icon="{faFileDownload}"/> Download PDF</a></p>
+            <p><a on:click={() => open = !open} rel="external" target="_new" href="https://www.stand.earth/latest/markets-vs-climate/fossil-free-fashion/new-standearth-analysis-shows-major-fashion-brands"><Fa icon="{faRss}"/> Read Press Release</a></p>
+            <p><a on:click={() => open = !open} rel="external" target="_new" href="https://www.stand.earth/markets-vs-climate/fossil-free-fashion"><Fa icon="{faGraduationCap}"/> Learn More</a></p>
             <p><a on:click={() => open = !open} rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals"><button>Take Action</button></a></p>
         </div>
         

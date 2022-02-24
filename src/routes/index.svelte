@@ -101,6 +101,9 @@
 						<li>
 							<a rel="external" target="_new" href="https://act.stand.earth/page/26072/petition/1?ea.tracking.id=referrals">Take Action</a>
 						</li>
+						<li>
+							<a rel="external" target="_new" href="https://www.stand.earth/latest/markets-vs-climate/fossil-free-fashion/new-standearth-analysis-shows-major-fashion-brands">Read Press Release</a>
+						</li>
 				</div>
 			</Col>
 		</Row>
@@ -127,9 +130,32 @@
 
 
 <style>
+	.cover {
+		height:675px;
+	}
+
 	.cover img {
 		width:100%;
 	}
+
+	@media (max-width:1100px) {
+		.cover {
+			height:494px;
+		}
+	}
+
+	@media (max-width:700px) {
+		.cover {
+			height:340px;
+		}
+	}
+
+	@media (max-width:400px) {
+		.cover {
+			height:640px;
+		}
+	}
+	
 
 	a {
 		color:var(--primary-color);
