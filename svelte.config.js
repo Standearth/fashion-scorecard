@@ -17,7 +17,7 @@ export default {
 
 export default {
 	kit: {
-		adapter: netlify(),
-		target: '#svelte'
+		adapter: netlify()
+		/*target: '#svelte'*/
 	}
 }
