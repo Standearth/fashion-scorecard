@@ -1,7 +1,7 @@
 <script context="module">
 	import { base } from '$app/paths';
-	export async function load({ page, fetch }) {
-		const slug = page.params.finding;
+	export async function load({ params, fetch }) {
+		const slug = params.finding;
 		const body = await fetch(`${base}/key-findings/${slug}.json`)
 			.then((r) => r.json());
 		const content = body.content;
