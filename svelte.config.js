@@ -1,6 +1,7 @@
 /* @type {import('@sveltejs/kit').Config} */
 import adapter from '@sveltejs/adapter-static'
 import netlify  from '@sveltejs/adapter-netlify'
+import autoadapt from '@sveltejs/adapter-auto'
 /*
 export default {
 	kit: {
@@ -17,10 +18,10 @@ export default {
 
 export default {
 	kit: {
-		adapter: netlify({
+		adapter: autoadapt({
 			// if true, will split your app into multiple functions
 			// instead of creating a single one for the entire app
-			split: false
+			/*split: false*/
 		})
 	}
 };
