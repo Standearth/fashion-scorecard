@@ -2,7 +2,7 @@
   "name": "fashion-scorecard",
   "version": "0.0.1",
   "engines": {
-    "node": "17.8.0"
+    "node": "14.16.0"
   },
   "scripts": {
     "dev": "svelte-kit dev",
