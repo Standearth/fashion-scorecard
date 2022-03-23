@@ -18,10 +18,10 @@ export default {
 
 export default {
 	kit: {
-		adapter: autoadapt({
+		adapter: netlify({
 			// if true, will split your app into multiple functions
 			// instead of creating a single one for the entire app
-			/*split: false*/
+			split: false
 		})
 	}
 };
