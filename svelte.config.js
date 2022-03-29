@@ -1,8 +1,8 @@
 /* @type {import('@sveltejs/kit').Config} */
-/*import adapter from '@sveltejs/adapter-static'*/
+import adapter from '@sveltejs/adapter-static'
 import netlify  from '@sveltejs/adapter-netlify'
 import autoadapt from '@sveltejs/adapter-auto'
-/*
+
 export default {
 	kit: {
 		
@@ -11,11 +11,10 @@ export default {
 			pages: 'build',
 			assets: 'build',
 			fallback: null
-		}),
-		target: '#svelte'
+		})
 	}
-};*/
-
+};
+/*
 export default {
 	kit: {
 		adapter: netlify({
@@ -24,4 +23,4 @@ export default {
 			split: false
 		})
 	}
-};
+};*/
