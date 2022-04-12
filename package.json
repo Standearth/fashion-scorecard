@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "rm -rf build && svelte-kit build && touch build/.nojekyll",
+    "build": "svelte-kit build",
     "gdoc": "node scripts/fetch-google.js",
     "preview": "svelte-kit preview",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
