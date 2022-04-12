@@ -1,26 +1,15 @@
-/* @type {import('@sveltejs/kit').Config} */
-import adapter from '@sveltejs/adapter-static'
-import netlify  from '@sveltejs/adapter-netlify'
-import autoadapt from '@sveltejs/adapter-auto'
+import adapter from '@sveltejs/adapter-auto';
 
-/*export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
 	kit: {
-		
-		adapter: adapter({
-			// default options are shown
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		})
-	}
-};*/
+		adapter: adapter(),
 
-export default {
-	kit: {
-		adapter: autoadapt({
-			// if true, will split your app into multiple functions
-			// instead of creating a single one for the entire app
-			split: false
-		})
+		// Override http methods in the Todo forms
+		methodOverride: {
+			allowed: ['PATCH', 'DELETE']
+		}
 	}
 };
+
+export default config;
