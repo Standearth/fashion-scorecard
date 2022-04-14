@@ -6,7 +6,7 @@
      import {fade} from 'svelte/transition'
      import {onMount} from 'svelte'
      import { Spinner, Col, Container, Row } from 'sveltestrap';
-    import { ga } from '@beyonk/svelte-google-analytics'
+    
     let open = false;
     let loading = true;
     let content = {
@@ -171,7 +171,7 @@
                 <div class="brand-scores">
                 {#each sortedData as brand}
                     <!-- svelte-ignore a11y-missing-attribute -->
-                    <a sveltekit:prefetch on:click={() => content = {name: brand.brand, path: brand.path, grade: brand.grade, summary:brand.summary}} on:click={() => (open = !open)} on:click={() => (ga.all.selectContent(brand.brand))}>
+                    <a sveltekit:prefetch on:click={() => content = {name: brand.brand, path: brand.path, grade: brand.grade, summary:brand.summary}} on:click={() => (open = !open)}>
                         <div class="score-box" transition:fade>
                             <p>
                                 <img alt="{brand.brand}" transition:fade src="{base}/assets/images/logos/{brand.path}.png">
