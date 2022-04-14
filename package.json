@@ -14,7 +14,6 @@
     "deploy": "rm -rf docs && cp -r build docs && git add --all && git commit -m 'deploy' && git push origin main"
   },
   "devDependencies": {
-    "@beyonk/svelte-google-analytics": "^2.4.0",
     "@sveltejs/adapter-auto": "^1.0.0-next.34",
     "@sveltejs/adapter-netlify": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.29",
