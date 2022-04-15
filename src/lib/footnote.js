@@ -7,8 +7,8 @@
 		if( footnotes.length > 0 ) {
       var notes2 = notes[0].getElementsByTagName("li");
 			for( var i = 0; i < footnotes.length; i++) {
-        let num = footnotes[i].getElementsByTagName('sup')[0].innerHTML;
-        num = parseInt(num.replace( /^\D+/g, ''));
+        let strNum = footnotes[i].getElementsByTagName('sup')[0].innerHTML;
+        let num = parseInt(strNum.replace( /^\D+/g, ''));
         num = num-1;
         let note = document.createElement('span');
 				note.classList.add('note');
