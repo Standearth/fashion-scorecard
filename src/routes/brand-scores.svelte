@@ -1,13 +1,13 @@
 <script>
-	import Grade from '../lib/Grade.svelte'
-	import {base} from '$app/paths'
-	import { Col, Container, Row, Accordion, AccordionHeader, AccordionItem, Icon } from 'sveltestrap';
+	import Container from 'sveltestrap/src/Container.svelte';
+	import Row from 'sveltestrap/src/Row.svelte';
+	import Col from 'sveltestrap/src/Col.svelte';
+
 	import Grid from '../lib/Grid.svelte'
 	import Fa from 'svelte-fa/src/fa.svelte'
 	import Header from '../lib/Header.svelte'
 	import homepage from "../data/homepage.json";
-	import { faArrowRight, faBalanceScale, faClipboardList } from '@fortawesome/free-solid-svg-icons'
-import { faClipboard } from '@fortawesome/free-regular-svg-icons';
+	import { faArrowRight, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <svelte:head>

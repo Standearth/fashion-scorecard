@@ -45,7 +45,14 @@
 </svelte:head>
 
 <script>
-	import { TabContent, TabPane, Col, Container, Row, Accordion, AccordionItem } from 'sveltestrap';
+	import TabContent from 'sveltestrap/src/TabContent.svelte';
+	import TabPane from 'sveltestrap/src/TabPane.svelte';
+	import Accordion from 'sveltestrap/src/Accordion.svelte';
+	import AccordionItem from 'sveltestrap/src/AccordionItem.svelte';
+	import Container from 'sveltestrap/src/Container.svelte';
+	import Row from 'sveltestrap/src/Row.svelte';
+	import Col from 'sveltestrap/src/Col.svelte';
+
 	import createFootnotes from '../../lib/footnote.js'
 	import Grid from '../../lib/Grid.svelte'
 	import { onMount } from 'svelte'
