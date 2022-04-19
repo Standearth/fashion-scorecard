@@ -10,10 +10,7 @@
 	import '../styles/water.css';
 	import '../styles/app.css';
 	import '../styles/font.css';
-	import { GoogleAnalytics } from '@beyonk/svelte-google-analytics'
 </script>
-
-<GoogleAnalytics properties={[ 'G-8C7YDS4311']} />
 
 <main>
 	<slot />

@@ -10,7 +10,6 @@
 	import Container from 'sveltestrap/src/Container.svelte';
 	import Row from 'sveltestrap/src/Row.svelte';
 	import Col from 'sveltestrap/src/Col.svelte';
-    import { ga } from '@beyonk/svelte-google-analytics'
 
 	let open = false;
 	let loading = true;
@@ -217,7 +216,6 @@
 									summary: brand.summary
 								})}
 							on:click={() => (open = !open)}
-                            on:click={() => (ga.all.selectContent(brand.brand))}
 						>
 							<div class="score-box" transition:fade>
 								<p>
